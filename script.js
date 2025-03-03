@@ -52,7 +52,7 @@ const games = [
 
 // Changelog Data
 const changelog = [
-    "2024-12-14: Initial release of Retro Unblocked.",
+    "2024-12-14: Initial release of Hanshew Unblocked.",
     "2025-1-02: Added Dark Mode / Light Mode Toggle.",
     "2025-1-03: Added Random Game Button.",
     "2025-2-04: Organized games into categories (Action, Puzzle, Sports).",
