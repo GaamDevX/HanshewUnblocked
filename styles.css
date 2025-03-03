@@ -1,0 +1,241 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #f7f7f7; /* Light gray background */
+    color: #333; /* Dark gray text */
+    overflow-x: hidden;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Header */
+.header {
+    background: #333; /* Dark gray background */
+    padding: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff; /* White text */
+    text-align: center;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+    position: relative;
+    z-index: 2;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.nav button {
+    background: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    border: 2px solid #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #fff;
+    animation: bob 2s infinite;
+}
+
+.nav button:hover {
+    background: #fff; /* White background */
+    color: #333; /* Dark gray text */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Content Section */
+.content {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background: #fff; /* White background */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333; /* Dark gray text */
+    text-shadow: 0 0 10px #fff;
+}
+
+.content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content ul li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* Game Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-grid button {
+    background: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    border: 2px solid #fff;
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #fff;
+    animation: bob 2s infinite;
+}
+
+.game-grid button:hover {
+    background: #fff; /* White background */
+    color: #333; /* Dark gray text */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Search Bar */
+.search-bar {
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    font-size: 18px;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 2px solid #333;
+    background: #fff; /* White background */
+    color: #333; /* Dark gray text */
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.search-bar:focus {
+    outline: none;
+    box-shadow: 0 0 20px #333;
+}
+
+/* Floating Shapes Animation */
+.shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-100px) translateX(100px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+/* Bobbing Effect */
+@keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Settings Buttons */
+.color-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.color-options button {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #333;
+    background: #fff; /* White background */
+    color: #333; /* Dark gray text */
+    transition: all 0.3s ease;
+}
+
+.color-options button:hover {
+    background: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 10px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Random Game Button */
+.random-game-button {
+    margin: 20px auto;
+    display: block;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    background: #fff; /* White background */
+    color: #333; /* Dark gray text */
+    border: 2px solid #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #333;
+}
+
+.random-game-button:hover {
+    background: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #333;
+}
+
+/* Game Categories */
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.category-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    background: #fff; /* White background */
+    color: #333; /* Dark gray text */
+    border: 2px solid #333;
+    transition: all 0.3s ease;
+}
+
+.category-buttons button:hover {
+    background: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    transform: scale(1.1);
+}

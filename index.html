@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Unblocked</title>
+    <link rel="icon" href="https://lh6.googleusercontent.com/3LuQ6JmqjSl-cfOoa7d7wvI6UMBHemY2ZC2pjSiMNdWbGBE5K_iVAHXO2TSEjU21nnxSJ8odiahwddDeWFynK_c=w1280">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">Retro Unblocked</header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <button onclick="showContent('games')">Games</button>
+        <button onclick="showContent('changelog')">Changelog</button>
+        <button onclick="showContent('request')">Request Game</button>
+        <button onclick="showContent('settings')">Settings</button>
+        <button onclick="showProfile()">Profile</button>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="content" id="content">Welcome to Retro Unblocked!</div>
+
+    <!-- Search Bar -->
+    <div id="searchContainer" style="display: none;">
+        <input class="search-bar" type="text" id="search" placeholder="Search Games..." oninput="searchGames()">
+    </div>
+
+    <!-- Random Game Button -->
+    <button class="random-game-button" id="randomGameButton" style="display: none;" onclick="openRandomGame()"> Random Game</button>
+
+    <!-- Game Categories -->
+    <div class="category-buttons" id="categoryButtons" style="display: none;">
+        <button onclick="filterGames('all')">All</button>
+        <button onclick="filterGames('action')">Action</button>
+        <button onclick="filterGames('puzzle')">Puzzle</button>
+        <button onclick="filterGames('sports')">Sports</button>
+        <button onclick="filterGames('horror')">Horror</button>
+        <button onclick="filterGames('shooting')">Shooting</button>
+        <button onclick="filterGames('cars')">Cars</button>
+    </div>
+
+    <!-- Floating Shapes -->
+    <div class="shape" style="width: 100px; height: 100px; top: 10%; left: 10%;"></div>
+    <div class="shape" style="width: 150px; height: 150px; top: 30%; left: 70%;"></div>
+    <div class="shape" style="width: 200px; height: 200px; top: 50%; left: 30%;"></div>
+    <div class="shape" style="width: 120px; height: 120px; top: 70%; left: 50%;"></div>
+    <div class="shape" style="width: 180px; height: 180px; top: 90%; left: 20%;"></div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Retro Unblocked. All rights reserved.
+    </footer>
+
+    <!-- Profile Section -->
+    <div id="profile" style="display: none;">
+        <h2>Profile</h2>
+        <form id="profile-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="profile-picture">Profile Picture:</label>
+            <input type="file" id="profile-picture" name="profile-picture"><br><br>
+            <button type="submit">Save Profile</button>
+        </form>
+        <div id="profile-info"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
