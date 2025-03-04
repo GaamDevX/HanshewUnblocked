@@ -1,53 +1,48 @@
 // Games List with Categories
 const games = [
-    { name: "Twitch", url: "https://dexter.is.sigma.df.webconstructions.co.uk/uv/service/hvtrs8%2F-wuw%2Ctuivcj.vv-", category: "apps" },
-    { name: "Fortnite", url: "https://dexter.is.sigma.df.webconstructions.co.uk/uv/service/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F!%2Ffegpnilk%3Dgcmg-kd%3F44bda%6004-f844%2F445f-%3Be76%2F2f9g47cfeg0c", category: "action" },
-    { name: "Pokemon", url: "https://skys.follobusiness.com/semag/pokemon/index.html", category: "apps" },
-    { name: "YouTube", url: "https://dexter.is.sigma.df.webconstructions.co.uk/uv/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-", category: "apps" },
-    { name: "ROBLOX", url: "https://dexter.is.sigma.df.webconstructions.co.uk/uv/service/hvtrs8%2F-rgnfepiqgcy%2Colrgnfep.aoo%2F", category: "apps" },
-    { name: "1v1.lol", url: "https://skys.follobusiness.com/semag/1v1lol/index.html", category: "action" },
-    { name: "Amazing Rope Police", url: "https://skys.follobusiness.com/semag/amazing-rope-police/index.html", category: "puzzle" },
-    { name: "Basketball Stars", url: "https://skys.follobusiness.com/semag/basketball-stars/index.html", category: "sports" },
-    { name: "Bitlife", url: "https://skys.follobusiness.com/semag/bitlife/index.html", category: "puzzle" },
-    { name: "Cookie Clicker", url: "https://skys.follobusiness.com/semag/cookieclicker/index.html", category: "puzzle" },
-    { name: "Drift Hunters", url: "https://skys.follobusiness.com/semag/drifthunters/index.html", category: "sports" },
-    { name: "Drive Mad", url: "https://skys.follobusiness.com/semag/drivemad/index.html", category: "action" },
-    { name: "StackTris", url: "https://dexter.is.sigma.df.webconstructions.co.uk/data/g/stacktris/", category: "puzzle" },
-    { name: "TABS", url: "https://skys.follobusiness.com/semag/tabs/index.html", category: "action" },
-    { name: "Gladihoppers", url: "https://skys.follobusiness.com/semag/gladihoppers/index.html", category: "action" },
-    { name: "Ocarina of Time", url: "https://skys.follobusiness.com/semag/ocarinaoftime/index.html", category: "action" },
-    { name: "Eaglercraft", url: "https://skys.follobusiness.com/semag/eaglercraft/index.html", category: "action" },
-    { name: "OVO", url: "https://skys.follobusiness.com/semag/ovo/index.html", category: "puzzle" },
-    { name: "Poly Track", url: "https://skys.follobusiness.com/semag/polytrack/index.html", category: "sports" },
-    { name: "Monkey Mart", url: "https://skys.follobusiness.com/semag/monkeymart/index.html", category: "puzzle" },
-    { name: "Paper.io", url: "https://skys.follobusiness.com/semag/paperio/index.html", category: "action" },
-    { name: "Snow Rider 3D", url: "https://skys.follobusiness.com/semag/snowrider3d/index.html", category: "sports" },
-    { name: "Windows 11", url: "https://skys.follobusiness.com/sppa/11/index.html", category: "puzzle" },
-    { name: "Stickman Climb", url: "https://skys.follobusiness.com/semag/stickmanclimb/index.html", category: "action" },
-    { name: "Madalin Cars", url: "https://skys.follobusiness.com/semag/madalincars/index.html", category: "sports" },
-    { name: "Drift Boss", url: "https://skys.follobusiness.com/semag/drift-boss/index.html", category: "sports" },
-    { name: "Age Of War", url: "https://skys.follobusiness.com/semag/ageofwar/index.html", category: "action" },
-    { name: "Kick That Buddy", url: "https://skys.follobusiness.com/semag/kickthatbuddy/index.html", category: "action" },
-    { name: "MajorasMask", url: "https://skys.follobusiness.com/semag/majorasmask/index.html", category: "action" },
-    { name: "Rooftop Snipers 2", url: "https://skys.follobusiness.com/semag/rooftopsnipers2/index.html", category: "sports" },
-    { name: "RandomFacts", url: "https://plawizard.github.io/RandomFactsGenerator/", category: "puzzle" },
-    { name: "Jetpack Joyride", url: "https://skys.follobusiness.com/semag/jetpackjoyride/index.html", category: "puzzle" },
-    { name: "Rocket League", url: "https://skys.follobusiness.com/semag/2drocketleague/index.html", category: "sports" },
-    { name: "Retro Bowl", url: "https://skys.follobusiness.com/semag/retrobowl/index.html", category: "sports" },
-    { name: "Retro Bowl College", url: "https://skys.follobusiness.com/semag/retrobowlcollege/index.html", category: "sports" },
-    { name: "Fancy Pants 2", url: "https://skys.follobusiness.com/semag/fancypantsadventures2/index.html", category: "sports" },
-    { name: "Just Fall.lol", url: "https://skys.follobusiness.com/semag/justfalllol/index.html", category: "sports" },
-    { name: "fnaf", url: "https://skys.follobusiness.com/semag/fnaf/index.html", category: "horror" },
-    { name: "fnaf 2", url: "https://skys.follobusiness.com/semag/fnaf2/index.html", category: "horror" },
-    { name: "fnaf 3", url: "https://skys.follobusiness.com/semag/fnaf3/index.html", category: "horror" },
-    { name: "fnaf 4", url: "https://skys.follobusiness.com/semag/fnaf4/index.html", category: "horror" },
-    { name: "FunnyShooter1", url: "https://skys.follobusiness.com/semag/funnyshooter/index.html", category: "shooting" },
-    { name: "FunnyShooter2", url: "https://skys.follobusiness.com/semag/funnyshooter2/index.html", category: "shooting" },
-    { name: "StackTris", url: "https://artedu1808.github.io/g6/stacktris/", category: "puzzle" },
-    { name: "8-Ball-Pool", url: "https://artedu1808.github.io/g8/8-ball-pool/", category: "sports" },
-    { name: "Bullet Force", url: "https://artedu1808.github.io/g7/bullet-force/", category: "shooting" },
-    { name: "Offroader-V5", url: "https://artedu1808.github.io/g5/offroader-v5/", category: "cars" },
-    { name: "BowlingStars", url: "https://artedu1808.github.io/g2/bowling-stars/", category: "sports" },
+    { name: "1v1.lol", url: "https://skys.follobusiness.com/semag/1v1lol/index.html", category: "action", image: "https://img.utdstc.com/icon/983/22a/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de:200" },
+    { name: "Amazing Rope Police", url: "https://skys.follobusiness.com/semag/amazing-rope-police/index.html", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10dN4kjY-lCBWXN9X1FHTGaqJukp55Ic2rA&s" },
+    { name: "Basketball Stars", url: "https://skys.follobusiness.com/semag/basketball-stars/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxKMfiklMLmio5eJsDFtmN0QYrbSjEfp3EQg&s" },
+    { name: "Bitlife", url: "https://skys.follobusiness.com/semag/bitlife/index.html", category: "puzzle", image: "https://static.wikia.nocookie.net/logopedia/images/9/99/Bitlife.png/revision/latest?cb=20230208011106" },
+    { name: "Cookie Clicker", url: "https://skys.follobusiness.com/semag/cookieclicker/index.html", category: "puzzle", image: "" },
+    { name: "Drift Hunters", url: "https://skys.follobusiness.com/semag/drifthunters/index.html", category: "sports", image: "" },
+    { name: "Drive Mad", url: "https://skys.follobusiness.com/semag/drivemad/index.html", category: "action", image: "" },
+    { name: "StackTris", url: "https://dexter.is.sigma.df.webconstructions.co.uk/data/g/stacktris/", category: "puzzle", image: "" },
+    { name: "TABS", url: "https://skys.follobusiness.com/semag/tabs/index.html", category: "action", image: "" },
+    { name: "Gladihoppers", url: "https://skys.follobusiness.com/semag/gladihoppers/index.html", category: "action", image: "" },
+    { name: "Ocarina of Time", url: "https://skys.follobusiness.com/semag/ocarinaoftime/index.html", category: "action", image: "" },
+    { name: "Eaglercraft", url: "https://skys.follobusiness.com/semag/eaglercraft/index.html", category: "action", image: "" },
+    { name: "OVO", url: "https://skys.follobusiness.com/semag/ovo/index.html", category: "puzzle", image: "" },
+    { name: "Poly Track", url: "https://skys.follobusiness.com/semag/polytrack/index.html", category: "sports", image: "" },
+    { name: "Monkey Mart", url: "https://skys.follobusiness.com/semag/monkeymart/index.html", category: "puzzle", image: "" },
+    { name: "Paper.io", url: "https://skys.follobusiness.com/semag/paperio/index.html", category: "action", image: "" },
+    { name: "Snow Rider 3D", url: "https://skys.follobusiness.com/semag/snowrider3d/index.html", category: "sports", image: "" },
+    { name: "Windows 11", url: "https://skys.follobusiness.com/sppa/11/index.html", category: "puzzle", image: "" },
+    { name: "Stickman Climb", url: "https://skys.follobusiness.com/semag/stickmanclimb/index.html", category: "action", image: "" },
+    { name: "Madalin Cars", url: "https://skys.follobusiness.com/semag/madalincars/index.html", category: "sports", image: "" },
+    { name: "Drift Boss", url: "https://skys.follobusiness.com/semag/drift-boss/index.html", category: "sports", image: "" },
+    { name: "Age Of War", url: "https://skys.follobusiness.com/semag/ageofwar/index.html", category: "action", image: "" },
+    { name: "Kick That Buddy", url: "https://skys.follobusiness.com/semag/kickthatbuddy/index.html", category: "action", image: "" },
+    { name: "MajorasMask", url: "https://skys.follobusiness.com/semag/majorasmask/index.html", category: "action", image: "" },
+    { name: "Rooftop Snipers 2", url: "https://skys.follobusiness.com/semag/rooftopsnipers2/index.html", category: "sports", image: "" },
+    { name: "RandomFacts", url: "https://plawizard.github.io/RandomFactsGenerator/", category: "puzzle", image: "" },
+    { name: "Jetpack Joyride", url: "https://skys.follobusiness.com/semag/jetpackjoyride/index.html", category: "puzzle", image: "" },
+    { name: "Rocket League", url: "https://skys.follobusiness.com/semag/2drocketleague/index.html", category: "sports", image: "" },
+    { name: "Retro Bowl", url: "https://skys.follobusiness.com/semag/retrobowl/index.html", category: "sports", image: "" },
+    { name: "Retro Bowl College", url: "https://skys.follobusiness.com/semag/retrobowlcollege/index.html", category: "sports", image: "" },
+    { name: "Fancy Pants 2", url: "https://skys.follobusiness.com/semag/fancypantsadventures2/index.html", category: "sports", image: "" },
+    { name: "Just Fall.lol", url: "https://skys.follobusiness.com/semag/justfalllol/index.html", category: "sports", image: "" },
+    { name: "fnaf", url: "https://skys.follobusiness.com/semag/fnaf/index.html", category: "horror", image: "" },
+    { name: "fnaf 2", url: "https://skys.follobusiness.com/semag/fnaf2/index.html", category: "horror", image: "" },
+    { name: "fnaf 3", url: "https://skys.follobusiness.com/semag/fnaf3/index.html", category: "horror", image: "" },
+    { name: "fnaf 4", url: "https://skys.follobusiness.com/semag/fnaf4/index.html", category: "horror", image: "" },
+    { name: "FunnyShooter1", url: "https://skys.follobusiness.com/semag/funnyshooter/index.html", category: "shooting", image: "" },
+    { name: "FunnyShooter2", url: "https://skys.follobusiness.com/semag/funnyshooter2/index.html", category: "shooting", image: "" },
+    { name: "StackTris", url: "https://artedu1808.github.io/g6/stacktris/", category: "puzzle", image: "" },
+    { name: "8-Ball-Pool", url: "https://artedu1808.github.io/g8/8-ball-pool/", category: "sports", image: "" },
+    { name: "Bullet Force", url: "https://artedu1808.github.io/g7/bullet-force/", category: "shooting", image: "" },
+    { name: "Offroader-V5", url: "https://artedu1808.github.io/g5/offroader-v5/", category: "cars", image: "" },
+    { name: "BowlingStars", url: "https://artedu1808.github.io/g2/bowling-stars/", category: "sports", image: "" },
 ];
 
 // Changelog Data
@@ -72,7 +67,12 @@ function showContent(section) {
         if (section === 'games') {
             content.innerHTML = `<h2>Games</h2>
             <div class="game-grid" id="gameGrid">
-                ${games.map(game => `<button onclick="openGame('${game.url}')">${game.name}</button>`).join('')}
+                ${games.map(game => `
+                    <div class="game-card">
+                        <img src="${game.image}" alt="${game.name}">
+                        <button onclick="openGame('${game.url}')">${game.name}</button>
+                    </div>
+                `).join('')}
             </div>`;
             document.getElementById('searchContainer').style.display = 'block';
             document.getElementById('categoryButtons').style.display = 'flex';
@@ -138,10 +138,20 @@ function openRandomGame() {
 function filterGames(category) {
     const gameGrid = document.getElementById('gameGrid');
     if (category === 'all') {
-        gameGrid.innerHTML = games.map(game => `<button onclick="openGame('${game.url}')">${game.name}</button>`).join('');
+        gameGrid.innerHTML = games.map(game => `
+            <div class="game-card">
+                <img src="${game.image}" alt="${game.name}">
+                <button onclick="openGame('${game.url}')">${game.name}</button>
+            </div>
+        `).join('');
     } else {
         const filteredGames = games.filter(game => game.category === category);
-        gameGrid.innerHTML = filteredGames.map(game => `<button onclick="openGame('${game.url}')">${game.name}</button>`).join('');
+        gameGrid.innerHTML = filteredGames.map(game => `
+            <div class="game-card">
+                <img src="${game.image}" alt="${game.name}">
+                <button onclick="openGame('${game.url}')">${game.name}</button>
+            </div>
+        `).join('');
     }
 }
 
@@ -160,9 +170,9 @@ function changeColors(background, textColor) {
 // Search Games Function
 function searchGames() {
     const query = document.getElementById('search').value.toLowerCase();
-    const gameButtons = document.querySelectorAll('.game-grid button');
+    const gameButtons = document.querySelectorAll('.game-grid .game-card');
     gameButtons.forEach(button => {
-        const gameName = button.innerText.toLowerCase();
+        const gameName = button.querySelector('button').textContent.toLowerCase();
         if (gameName.includes(query)) {
             button.style.display = 'block';
         } else {
@@ -195,4 +205,28 @@ document.getElementById('profile-form').addEventListener('submit', function(even
         document.getElementById('profile-info').innerHTML = `<img src="${event.target.result}" alt="Profile Picture">`;
     };
     reader.readAsDataURL(profilePicture);
+});
+
+// Function to show the image adder section
+function showImageAdder() {
+    const imageAdder = document.getElementById('image-adder');
+    imageAdder.style.display = 'block';
+}
+
+// Function to handle image adder form submission
+document.getElementById('image-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const gameName = document.getElementById('game-name').value;
+    const gameImage = document.getElementById('game-image').files[0];
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const gameIndex = games.findIndex(game => game.name === gameName);
+        if (gameIndex !== -1) {
+            games[gameIndex].image = event.target.result;
+            showContent('games');
+        } else {
+            alert('Game not found!');
+        }
+    };
+    reader.readAsDataURL(gameImage);
 });
