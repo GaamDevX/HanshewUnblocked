@@ -41,6 +41,8 @@ const games = [
     { name: "Bullet Force", url: "https://artedu1808.github.io/g7/bullet-force/", category: "shooting", image: "https://play-lh.googleusercontent.com/TGutKZy5JkPsQzFhFoqLBQMrpKkpHNaLk_kosXUQ9S_PCNpE4BXRbVgZwDOR67KcnM9P" },
     { name: "Offroader-V5", url: "https://artedu1808.github.io/g5/offroader-v5/", category: "cars", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAToQk1ywQVdc-wwLqCWdi5_idfBx_g-BVg&s" },
     { name: "BowlingStars", url: "https://artedu1808.github.io/g2/bowling-stars/", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfXJDdmOQso8dtEbg0ePcVxPOn7OqcLiZG_A&s" },
+    { name: "EggClicker", url: "https://vionicofficial2.github.io/EggClicker/", category: "puzzle", image: "https://images.vexels.com/media/users/3/199372/isolated/preview/1c4a614126e716a3c93fd5b9d9b0254b-fried-egg-illustration.png" },
+    
 ];
 
 // Changelog Data
