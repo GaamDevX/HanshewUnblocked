@@ -58,6 +58,7 @@ const changelog = [
     "2025-2-16: Started work on the 1.1 upcoming update.",
     "2025-2-19: Added a new category *Horror* and added some new games like FNAF 1 through 4.",
     "2025-3-4: Added Images for each game above thet coresponding button.",
+    "2025-3-13: Added Our New AI ChatBox.",
 ];
 
 // Show Content Function
@@ -87,8 +88,8 @@ function showContent(section) {
             document.getElementById('categoryButtons').style.display = 'none';
             document.getElementById('randomGameButton').style.display = 'none'; // Hide Random Game Button
         } else if (section === 'request') {
-            content.innerHTML = `<h2>Request a Game</h2>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScSAzH0fxhqhj2s_sypXYFnCp6Ugnuhk4Wb2PLA3ZR9fkNe9A/viewform?embedded=true" width="640" height="430" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>`;
+            content.innerHTML = `<h2>GaamAI</h2>
+            <iframe src="src="https://gaam-ai.created.app" title="Chat Interface" frameBorder="0"></iframe>;
             document.getElementById('searchContainer').style.display = 'none';
             document.getElementById('categoryButtons').style.display = 'none';
             document.getElementById('randomGameButton').style.display = 'none'; // Hide Random Game Button
