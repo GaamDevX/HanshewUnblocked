@@ -3,82 +3,891 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HanshewUnblocked</title>
-    <link rel="icon" href="https://lh6.googleusercontent.com/3LuQ6JmqjSl-cfOoa7d7wvI6UMBHemY2ZC2pjSiMNdWbGBE5K_iVAHXO2TSEjU21nnxSJ8odiahwddDeWFynK_c=w1280">
-    <link rel="stylesheet" href="styles.css">
+    <title>Hanshew Unblocked</title>
+    <style>
+        :root {
+            --primary-color: #6e48aa;
+            --secondary-color: #9d50bb;
+            --background-color: #1a1a2e;
+            --text-color: #ffffff;
+            --accent-color: #f39c12;
+            --card-color: #16213e;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--secondary-color);
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(110, 72, 170, 0.3);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 72, 170, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(110, 72, 170, 0.6);
+        }
+
+        .nav-btn:active {
+            transform: translateY(1px);
+        }
+
+        .content {
+            min-height: 60vh;
+            position: relative;
+        }
+
+        .page {
+            position: relative;
+            width: 100%;
+            min-height: 100%;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform: translateX(50px);
+        }
+
+        .page.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(0);
+        }
+
+        /* Home Page Styles */
+        .home-page {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .welcome-message {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--accent-color), #ff7675);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 2s infinite alternate;
+        }
+
+        .feature-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background-color: var(--card-color);
+            border-radius: 15px;
+            padding: 30px;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-desc {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Games Page Styles */
+        .games-page {
+            padding: 20px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .game-card {
+            background-color: var(--card-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .game-desc {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .play-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(110, 72, 170, 0.4);
+        }
+
+        /* Settings Page Styles */
+        .settings-page {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .settings-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .color-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .color-option {
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-option:hover {
+            transform: scale(1.05);
+        }
+
+        .theme-purple {
+            background: linear-gradient(45deg, #6e48aa, #9d50bb);
+        }
+
+        .theme-blue {
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+        }
+
+        .theme-red {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+
+        .theme-green {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+        }
+
+        .theme-dark {
+            background: linear-gradient(45deg, #34495e, #2c3e50);
+        }
+
+        .theme-orange {
+            background: linear-gradient(45deg, #e67e22, #d35400);
+        }
+
+        /* Changelog Page Styles */
+        .changelog-page {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .changelog-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .update-card {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .update-date {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .update-features {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .update-features li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .update-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(243, 156, 18, 0.8);
+            }
+        }
+
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background-color: var(--card-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn.active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Random Game Button */
+        .random-game-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 72, 170, 0.4);
+        }
+
+        .random-game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(110, 72, 170, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .feature-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .welcome-message {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">HanshewUnblocked</header>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">Hanshew Unblocked</div>
+            <div class="nav-buttons">
+                <button class="nav-btn" data-page="home">Home</button>
+                <button class="nav-btn" data-page="games">Games</button>
+                <button class="nav-btn" data-page="settings">Settings</button>
+                <button class="nav-btn" data-page="changelog">Changelog</button>
+            </div>
+        </header>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <button onclick="showContent('games')">Games</button>
-        <button onclick="showContent('changelog')">Changelog</button>
-        <button onclick="showContent('GaamAI')">GaamAI</button>
-        <button onclick="showContent('settings')">Settings</button>
-        <button onclick="showProfile()">Profile</button>
-    </nav>
+        <div class="content">
+            <!-- Home Page -->
+            <div class="page active" id="home">
+                <div class="home-page">
+                    <h1 class="welcome-message">Hanshew Unblocked</h1>
+                    <p>All your favorite games in one place</p>
+                    
+                    <div class="feature-cards">
+                        <div class="feature-card" data-page="games">
+                            <div class="feature-icon">🎮</div>
+                            <h3 class="feature-title">Games</h3>
+                            <p class="feature-desc">Browse our collection of unblocked games</p>
+                        </div>
+                        <div class="feature-card" data-page="settings">
+                            <div class="feature-icon">⚙️</div>
+                            <h3 class="feature-title">Settings</h3>
+                            <p class="feature-desc">Customize your experience</p>
+                        </div>
+                        <div class="feature-card" data-page="changelog">
+                            <div class="feature-icon">📝</div>
+                            <h3 class="feature-title">Updates</h3>
+                            <p class="feature-desc">See what's new</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Content Section -->
-    <div class="content" id="content">Welcome to Hanshew Unblocked!</div>
+            <!-- Games Page -->
+            <div class="page" id="games">
+                <div class="games-page">
+                    <h2>Game Collection</h2>
+                    
+                    <div class="category-filter" id="categoryFilter">
+                        <button class="category-btn active" data-category="all">All Games</button>
+                        <button class="category-btn" data-category="action">Action</button>
+                        <button class="category-btn" data-category="puzzle">Puzzle</button>
+                        <button class="category-btn" data-category="sports">Sports</button>
+                        <button class="category-btn" data-category="horror">Horror</button>
+                        <button class="category-btn" data-category="shooting">Shooting</button>
+                        <button class="category-btn" data-category="cars">Cars</button>
+                    </div>
+                    
+                    <button class="random-game-btn" id="randomGameBtn">Random Game</button>
+                    
+                    <div class="games-grid" id="gamesGrid">
+                        <!-- Games will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
 
-    <!-- Search Bar -->
-    <div id="searchContainer" style="display: none;">
-        <input class="search-bar" type="text" id="search" placeholder="Search Games..." oninput="searchGames()">
+            <!-- Settings Page -->
+            <div class="page" id="settings">
+                <div class="settings-page">
+                    <h2 class="settings-title">Settings</h2>
+                    
+                    <h3>Choose a Theme</h3>
+                    <div class="color-options">
+                        <div class="color-option theme-purple" data-theme="purple">Purple</div>
+                        <div class="color-option theme-blue" data-theme="blue">Blue</div>
+                        <div class="color-option theme-red" data-theme="red">Red</div>
+                        <div class="color-option theme-green" data-theme="green">Green</div>
+                        <div class="color-option theme-dark" data-theme="dark">Dark</div>
+                        <div class="color-option theme-orange" data-theme="orange">Orange</div>
+                    </div>
+                    
+                    <h3>Other Settings</h3>
+                    <div style="background-color: var(--card-color); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                        <div style="margin-bottom: 15px;">
+                            <label for="animations" style="display: block; margin-bottom: 5px;">Animations:</label>
+                            <select id="animations" style="width: 100%; padding: 10px; border-radius: 5px; background-color: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);">
+                                <option value="enabled">Enabled</option>
+                                <option value="disabled">Disabled</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px;">
+                                <input type="checkbox" id="darkModeToggle" style="margin-right: 10px;"> Dark Mode
+                            </label>
+                        </div>
+                        <button class="nav-btn" style="margin-top: 20px;">Save Settings</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Changelog Page -->
+            <div class="page" id="changelog">
+                <div class="changelog-page">
+                    <h2 class="changelog-title">Changelog</h2>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2024-12-14</div>
+                        <ul class="update-features">
+                            <li>Initial release of Hanshew Unblocked.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-1-02</div>
+                        <ul class="update-features">
+                            <li>Added Dark Mode / Light Mode Toggle.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-1-03</div>
+                        <ul class="update-features">
+                            <li>Added Random Game Button.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-2-04</div>
+                        <ul class="update-features">
+                            <li>Organized games into categories (Action, Puzzle, Sports).</li>
+                            <li>Improved animations and transitions.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-2-11</div>
+                        <ul class="update-features">
+                            <li>Added more color options to Settings.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-2-13</div>
+                        <ul class="update-features">
+                            <li>Fixed Random Game Button functionality.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-2-14</div>
+                        <ul class="update-features">
+                            <li>Updated changelog to include all changes and additions.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-2-16</div>
+                        <ul class="update-features">
+                            <li>Started work on the 1.1 upcoming update.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-2-19</div>
+                        <ul class="update-features">
+                            <li>Added a new category *Horror* and added some new games like FNAF 1 through 4.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-3-4</div>
+                        <ul class="update-features">
+                            <li>Added Images for each game above the corresponding button.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-date">2025-3-13</div>
+                        <ul class="update-features">
+                            <li>Added Our New AI ChatBox.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Random Game Button -->
-    <button class="random-game-button" id="randomGameButton" style="display: none;" onclick="openRandomGame()"> Random Game</button>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Game Data
+        const games = [
+            { name: "1v1.lol", url: "https://skys.follobusiness.com/semag/1v1lol/index.html", category: "action", image: "https://img.utdstc.com/icon/983/22a/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de:200" },
+            { name: "Amazing Rope Police", url: "https://skys.follobusiness.com/semag/amazing-rope-police/index.html", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10dN4kjY-lCBWXN9X1FHTGaqJukp55Ic2rA&s" },
+            { name: "Basketball Stars", url: "https://skys.follobusiness.com/semag/basketball-stars/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxKMfiklMLmio5eJsDFtmN0QYrbSjEfp3EQg&s" },
+            { name: "Bitlife", url: "https://skys.follobusiness.com/semag/bitlife/index.html", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgC8sppTxg1g9FQjgKe81b0ErTRqe1o8S8ONmXCWyaSaROJIeU_XL2omxPeRK-VQe0P-E&usqp=CAU" },
+            { name: "Cookie Clicker", url: "https://skys.follobusiness.com/semag/cookieclicker/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok" },
+            { name: "Drift Hunters", url: "https://skys.follobusiness.com/semag/drifthunters/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7rbvae6BZ2dxgEP7LFuu8yHn_yViQk5dIqw&s" },
+            { name: "Drive Mad", url: "https://skys.follobusiness.com/semag/drivemad/index.html", category: "action", image: "https://images.sftcdn.net/images/t_app-icon-m/p/324f21b7-bddf-42a2-846e-f40d1521980f/1576990609/drive-mad-logo" },
+            { name: "StackTris", url: "https://artedu1808.github.io/g6/stacktris/", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbX_bg4oxwVxrDtoO3TKvO751EwoNXfODhaw&s" },
+            { name: "TABS", url: "https://skys.follobusiness.com/semag/tabs/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpBDcgmPxH3ER70_wiRRLUaG_H-YqjMusdOQ&s" },
+            { name: "Gladihoppers", url: "https://skys.follobusiness.com/semag/gladihoppers/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ZEDsWmS2qXJAD806gandhucVQ1ZX_2exPQ&s" },
+            { name: "Ocarina of Time", url: "https://skys.follobusiness.com/semag/ocarinaoftime/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUOQgd8zgLY3lb7o2asgXoTosZJI0czWOCcQ&s" },
+            { name: "Eaglercraft", url: "https://skys.follobusiness.com/semag/eaglercraft/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJIRxDkgIg4KyeylGeXGWKnrSiSb0Jevonew&s" },
+            { name: "OVO", url: "https://skys.follobusiness.com/semag/ovo/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg" },
+            { name: "Poly Track", url: "https://skys.follobusiness.com/semag/polytrack/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_p_VpIc58Jo0Oi6hfv7Hc8Jl66nfkzBZAqg&s" },
+            { name: "Monkey Mart", url: "https://skys.follobusiness.com/semag/monkeymart/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/rWReIdyvDaYJPeOxn7hbC0b-96ixGpQKM_EndiQa3SUME8TtI_rNUcI4qsw5teK9mqk" },
+            { name: "Paper.io", url: "https://skys.follobusiness.com/semag/paperio/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuVWvKjEncCo4AJdcEDRT3Zmd45ocxJ478sA&s" },
+            { name: "Snow Rider 3D", url: "https://skys.follobusiness.com/semag/snowrider3d/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz7dK4-pB3Qu1NepZzKVPMyvED5LZcbOHiYg&s" },
+            { name: "Windows 11", url: "https://skys.follobusiness.com/sppa/11/index.html", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW8hhdmR3JeUl7CtEsJLZGajrLsqn-VdaRmIlYKmBT2Q4SZ4MEDCsJ6qqiidgoKwLtf4s&usqp=CAU" },
+            { name: "Stickman Climb", url: "https://skys.follobusiness.com/semag/stickmanclimb/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyYOPQELLgA4B84ZOD8zJsQYmlM6iykihp9A&s" },
+            { name: "Madalin Cars", url: "https://skys.follobusiness.com/semag/madalincars/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIkhLK2mUqNFdSj6RIx5panoFOSa1pcOZ-hQ&s" },
+            { name: "Drift Boss", url: "https://skys.follobusiness.com/semag/drift-boss/index.html", category: "sports", image: "https://m.media-amazon.com/images/I/71Rvyj1gI1L.png" },
+            { name: "Age Of War", url: "https://skys.follobusiness.com/semag/ageofwar/index.html", category: "action", image: "https://play-lh.googleusercontent.com/cez7h97liCyy1oqCsBRy0tzIbdRXDFjGs6XuAyPCbl2PHglm_wl8KydulnJWjMlRgGPc" },
+            { name: "Kick That Buddy", url: "https://skys.follobusiness.com/semag/kickthatbuddy/index.html", category: "action", image: "https://lh3.googleusercontent.com/H_Te1sCRc5fwgpKDvcI-crLI3GoT48zOc_iDN4H9wEsI5vLuzJN33BegsU9rJHbLVOM=s180" },
+            { name: "MajorasMask", url: "https://skys.follobusiness.com/semag/majorasmask/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpNGnnG9j5ftKngwCPUKS1ioFJS6cQVpzEKg&s" },
+            { name: "Rooftop Snipers 2", url: "https://skys.follobusiness.com/semag/rooftopsnipers2/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKY2uliGeNKbqaj4zsKGgQih6z4WKF7mgkew&s" },
+            { name: "Jetpack Joyride", url: "https://skys.follobusiness.com/semag/jetpackjoyride/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/3e_iyy1dolGSHqKFmwsao8SiMmqOtCuwD4CyKToLHoK34cchcH5PlG2VhOoE2_j-7FMH" },
+            { name: "Retro Bowl", url: "https://skys.follobusiness.com/semag/retrobowl/index.html", category: "sports", image: "https://upload.wikimedia.org/wikipedia/en/b/bf/Retro_Bowl_cover.png" },
+            { name: "Retro Bowl College", url: "https://skys.follobusiness.com/semag/retrobowlcollege/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/-BT8C-1UPYWouyjVvWYgaar_-xV4IQvX4Bvib3koGEGiy6UsHlt0RgYpUrdTDfC2y0ct=w240-h480-rw" },
+            { name: "Fancy Pants 2", url: "https://skys.follobusiness.com/semag/fancypantsadventures2/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/uUknF-T1uzoMBLoR7CJo2R6GT_2RYs9qxXSvzCxsxZ-i7KD43k3RsdCyw7xXESIkOUg" },
+            { name: "Just Fall.lol", url: "https://skys.follobusiness.com/semag/justfalllol/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/-0rSllZ8as88Jcs3iZ7-JCFyTb3YLB-HjR7bY7P6q_2MAswmDH4h1qNPfFiaZqzkkg" },
+            { name: "fnaf", url: "https://skys.follobusiness.com/semag/fnaf/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBD8hhK3t1Of7RjalJdvHwFBHgVaDQQSTGw&s" },
+            { name: "fnaf 2", url: "https://skys.follobusiness.com/semag/fnaf2/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYDtoidZbkDujUtlGoxp_P20iT-PQykJ-jYpNfItcIZMGmcxnf03t05PLxG8UMyGUcNe0&usqp=CAU" },
+            { name: "fnaf 3", url: "https://skys.follobusiness.com/semag/fnaf3/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbXpYZJ1QnUK0LiqIta3tWI6u-CF4lJ_O_3w&s" },
+            { name: "fnaf 4", url: "https://skys.follobusiness.com/semag/fnaf4/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPKA0wQi8NL5cTdqD7f2WA5r86Q4JYhnqhQQ&s" },
+            { name: "FunnyShooter1", url: "https://skys.follobusiness.com/semag/funnyshooter/index.html", category: "shooting", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuJ2LWGMUtzvCYWJddKS9aEWtBA9UXJBEunA&s" },
+            { name: "FunnyShooter2", url: "https://skys.follobusiness.com/semag/funnyshooter2/index.html", category: "shooting", image: "https://images.sftcdn.net/images/t_app-icon-m/p/5c2d6858-0333-4049-a7b4-bf103c84af35/1608539346/funny-shooter-2-bjr-logo" },
+            { name: "8-Ball-Pool", url: "https://artedu1808.github.io/g8/8-ball-pool/", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxdG_N17tO9kGtCEnFR7KXki36DHW-yJMe4g&s" },
+            { name: "Bullet Force", url: "https://artedu1808.github.io/g7/bullet-force/", category: "shooting", image: "https://play-lh.googleusercontent.com/TGutKZy5JkPsQzFhFoqLBQMrpKkpHNaLk_kosXUQ9S_PCNpE4BXRbVgZwDOR67KcnM9P" },
+            { name: "Offroader-V5", url: "https://artedu1808.github.io/g5/offroader-v5/", category: "cars", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAToQk1ywQVdc-wwLqCWdi5_idfBx_g-BVg&s" },
+            { name: "BowlingStars", url: "https://artedu1808.github.io/g2/bowling-stars/", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfXJDdmOQso8dtEbg0ePcVxPOn7OqcLiZG_A&s" },
+            { name: "EggClicker", url: "https://vionicofficial2.github.io/EggClicker/", category: "puzzle", image: "https://images.vexels.com/media/users/3/199372/isolated/preview/1c4a614126e716a3c93fd5b9d9b0254b-fried-egg-illustration.png" }
+        ];
 
-    <!-- Game Categories -->
-    <div class="category-buttons" id="categoryButtons" style="display: none;">
-        <button onclick="filterGames('all')">All</button>
-        <button onclick="filterGames('action')">Action</button>
-        <button onclick="filterGames('puzzle')">Puzzle</button>
-        <button onclick="filterGames('sports')">Sports</button>
-        <button onclick="filterGames('horror')">Horror</button>
-        <button onclick="filterGames('shooting')">Shooting</button>
-        <button onclick="filterGames('cars')">Cars</button>
-    </div>
+        // Page Navigation
+        document.querySelectorAll('.nav-btn, .feature-card').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
 
-    <!-- Floating Shapes -->
-    <div class="shape" style="width: 100px; height: 100px; top: 10%; left: 10%;"></div>
-    <div class="shape" style="width: 150px; height: 150px; top: 30%; left: 70%;"></div>
-    <div class="shape" style="width: 200px; height: 200px; top: 50%; left: 30%;"></div>
-    <div class="shape" style="width: 120px; height: 120px; top: 70%; left: 50%;"></div>
-    <div class="shape" style="width: 180px; height: 180px; top: 90%; left: 20%;"></div>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // If games page, render games
+            if (pageId === 'games') {
+                renderGames();
+            }
+        }
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 Hanshew Unblocked. All rights reserved.
-    </footer>
+        // Theme Switching
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const theme = this.getAttribute('data-theme');
+                changeTheme(theme);
+            });
+        });
 
-    <!-- Profile Section -->
-    <div id="profile" style="display: none;">
-        <h2>Profile</h2>
-        <form id="profile-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="profile-picture">Profile Picture:</label>
-            <input type="file" id="profile-picture" name="profile-picture"><br><br>
-            <button type="submit">Save Profile</button>
-        </form>
-        <div id="profile-info"></div>
-    </div>
+        function changeTheme(theme) {
+            const root = document.documentElement;
+            
+            switch(theme) {
+                case 'purple':
+                    root.style.setProperty('--primary-color', '#6e48aa');
+                    root.style.setProperty('--secondary-color', '#9d50bb');
+                    root.style.setProperty('--accent-color', '#f39c12');
+                    break;
+                case 'blue':
+                    root.style.setProperty('--primary-color', '#3498db');
+                    root.style.setProperty('--secondary-color', '#2c3e50');
+                    root.style.setProperty('--accent-color', '#1abc9c');
+                    break;
+                case 'red':
+                    root.style.setProperty('--primary-color', '#e74c3c');
+                    root.style.setProperty('--secondary-color', '#c0392b');
+                    root.style.setProperty('--accent-color', '#f1c40f');
+                    break;
+                case 'green':
+                    root.style.setProperty('--primary-color', '#2ecc71');
+                    root.style.setProperty('--secondary-color', '#27ae60');
+                    root.style.setProperty('--accent-color', '#e67e22');
+                    break;
+                case 'dark':
+                    root.style.setProperty('--primary-color', '#34495e');
+                    root.style.setProperty('--secondary-color', '#2c3e50');
+                    root.style.setProperty('--accent-color', '#95a5a6');
+                    break;
+                case 'orange':
+                    root.style.setProperty('--primary-color', '#e67e22');
+                    root.style.setProperty('--secondary-color', '#d35400');
+                    root.style.setProperty('--accent-color', '#3498db');
+                    break;
+            }
+        }
 
-    <!-- Image Adder Section -->
-    <div id="image-adder" style="display: none;">
-        <h2>Add Game Image</h2>
-        <form id="image-form">
-            <label for="game-name">Game Name:</label>
-            <input type="text" id="game-name" name="game-name"><br><br>
-            <label for="game-image">Game Image:</label>
-            <input type="file" id="game-image" name="game-image"><br><br>
-            <button type="submit">Add Image</button>
-        </form>
-    </div>
+        // Render Games
+        function renderGames(filterCategory = 'all') {
+            const gamesGrid = document.getElementById('gamesGrid');
+            gamesGrid.innerHTML = '';
+            
+            const filteredGames = filterCategory === 'all' 
+                ? games 
+                : games.filter(game => game.category === filterCategory);
+            
+            filteredGames.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                gameCard.innerHTML = `
+                    <img src="${game.image}" alt="${game.name}" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/6e48aa/ffffff?text=Game+Image'">
+                    <div class="game-info">
+                        <h3 class="game-title">${game.name}</h3>
+                        <a href="${game.url}" class="play-btn" target="_blank">Play Now</a>
+                    </div>
+                `;
+                gamesGrid.appendChild(gameCard);
+            });
+        }
 
-    <script src="script.js"></script>
+        // Category Filter
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.getAttribute('data-category');
+                renderGames(category);
+            });
+        });
+
+        // Random Game Button
+        document.getElementById('randomGameBtn').addEventListener('click', function() {
+            const randomGame = games[Math.floor(Math.random() * games.length)];
+            window.open(randomGame.url, '_blank');
+        });
+
+        // Dark Mode Toggle
+        document.getElementById('darkModeToggle').addEventListener('change', function() {
+            const root = document.documentElement;
+            if (this.checked) {
+                root.style.setProperty('--background-color', '#1a1a2e');
+                root.style.setProperty('--card-color', '#16213e');
+                root.style.setProperty('--text-color', '#ffffff');
+            } else {
+                root.style.setProperty('--background-color', '#f5f5f5');
+                root.style.setProperty('--card-color', '#ffffff');
+                root.style.setProperty('--text-color', '#333333');
+            }
+        });
+
+        // Particles.js Background
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Initial render of games
+        renderGames();
+    </script>
 </body>
 </html>
