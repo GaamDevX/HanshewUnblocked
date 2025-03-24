@@ -38,6 +38,10 @@
             border-bottom: 2px solid var(--secondary-color);
             margin-bottom: 30px;
             animation: fadeInDown 1s ease;
+            position: sticky;
+            top: 0;
+            background-color: var(--background-color);
+            z-index: 100;
         }
 
         .logo {
@@ -98,29 +102,22 @@
 
         .content {
             min-height: 60vh;
-            position: relative;
         }
 
         .page {
-            position: relative;
+            display: none;
             width: 100%;
-            min-height: 100%;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            transform: translateX(50px);
+            animation: fadeIn 0.5s ease;
         }
 
         .page.active {
-            opacity: 1;
-            pointer-events: all;
-            transform: translateX(0);
+            display: block;
         }
 
         /* Home Page Styles */
         .home-page {
             text-align: center;
-            padding: 40px 0;
+            padding: 20px 0;
         }
 
         .welcome-message {
@@ -176,7 +173,7 @@
 
         /* Games Page Styles */
         .games-page {
-            padding: 20px;
+            padding: 20px 0;
         }
 
         .games-grid {
@@ -239,7 +236,7 @@
 
         /* Settings Page Styles */
         .settings-page {
-            padding: 20px;
+            padding: 20px 0;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -298,7 +295,7 @@
 
         /* Changelog Page Styles */
         .changelog-page {
-            padding: 20px;
+            padding: 20px 0;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -353,6 +350,15 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
 
@@ -424,9 +430,16 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-buttons {
+            header {
                 flex-direction: column;
-                gap: 10px;
+                gap: 20px;
+            }
+            
+            .nav-buttons {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .feature-cards {
@@ -436,6 +449,10 @@
 
             .welcome-message {
                 font-size: 2rem;
+            }
+            
+            .category-filter {
+                justify-content: center;
             }
         }
     </style>
@@ -617,7 +634,7 @@
                     <div class="update-card">
                         <div class="update-date">2025-3-13</div>
                         <ul class="update-features">
-                            <li>Release Of 1.1 Update.</li>
+                            <li>Added Our New AI ChatBox.</li>
                         </ul>
                     </div>
                 </div>
@@ -689,8 +706,11 @@
             // Show selected page
             document.getElementById(pageId).classList.add('active');
             
-            // Scroll to top
-            window.scrollTo(0, 0);
+            // Scroll to top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
             
             // If games page, render games
             if (pageId === 'games') {
