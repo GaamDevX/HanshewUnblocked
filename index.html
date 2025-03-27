@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanshew Unblocked - Premium Game Hub</title>
+    <title>Hanshew Unblocked</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,7 +21,6 @@
             --warning-color: #ffd740;
             --border-radius: 12px;
             --transition-speed: 0.4s;
-            --header-height: 80px;
         }
 
         body {
@@ -61,7 +60,6 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
-            padding-top: calc(var(--header-height) + 20px);
         }
 
         /* Floating header with glass morphism effect */
@@ -70,17 +68,18 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
+            margin-bottom: 30px;
             animation: fadeInDown 0.8s ease;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(30, 30, 30, 0.9);
+            position: sticky;
+            top: 20px;
+            background: rgba(30, 30, 30, 0.8);
             backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: var(--header-height);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px auto;
+            max-width: calc(1400px - 40px);
         }
 
         .logo {
@@ -93,39 +92,11 @@
             text-shadow: 0 0 20px rgba(124, 77, 255, 0.3);
             letter-spacing: 1px;
             transition: all var(--transition-speed) ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
         }
 
         .logo:hover {
             text-shadow: 0 0 30px rgba(124, 77, 255, 0.5);
             transform: scale(1.02);
-        }
-
-        .header-controls {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .dark-mode-toggle {
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .dark-mode-toggle:hover {
-            transform: scale(1.1);
-            color: var(--accent-color);
         }
 
         .nav-buttons {
@@ -149,9 +120,6 @@
             z-index: 1;
             letter-spacing: 0.5px;
             font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .nav-btn::before {
@@ -211,9 +179,8 @@
         }
 
         .content {
-            min-height: calc(100vh - var(--header-height) - 40px);
+            min-height: 70vh;
             position: relative;
-            padding-top: 20px;
         }
 
         .page {
@@ -341,56 +308,11 @@
             display: inline-block;
         }
 
-        .games-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .search-container {
-            position: relative;
-            flex-grow: 1;
-            max-width: 400px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 20px 12px 45px;
-            border-radius: 50px;
-            background-color: var(--card-color);
-            color: var(--text-color);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-family: 'Poppins', sans-serif;
-            transition: all var(--transition-speed) ease;
-            font-size: 0.95rem;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.3);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-        }
-
-        .games-controls {
-            display: flex;
-            gap: 15px;
-        }
-
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
 
         /* Game card with hover animation */
@@ -442,63 +364,16 @@
             transform: scale(1.1);
         }
 
-        .game-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent-color);
-            color: #000;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
         .game-info {
             padding: 20px;
             position: relative;
             z-index: 1;
         }
 
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
-
         .game-title {
             font-size: 1.4rem;
             margin-bottom: 12px;
             font-weight: 600;
-            flex-grow: 1;
-        }
-
-        .favorite-btn {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            padding: 5px;
-        }
-
-        .favorite-btn:hover {
-            color: var(--accent-color);
-            transform: scale(1.1);
-        }
-
-        .favorite-btn.favorited {
-            color: var(--accent-color);
-        }
-
-        .game-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
         }
 
         .game-category {
@@ -509,24 +384,9 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
+            margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .game-rating {
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            color: var(--accent-color);
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .game-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
         }
 
         .play-btn {
@@ -555,22 +415,6 @@
             font-size: 0.9rem;
         }
 
-        .details-btn {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-
-        .details-btn:hover {
-            color: var(--accent-color);
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
         /* Category filter chips */
         .category-filter {
             display: flex;
@@ -590,9 +434,6 @@
             font-weight: 500;
             font-size: 0.9rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .category-btn.active {
@@ -613,6 +454,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            margin: 20px auto;
             padding: 14px 30px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -891,6 +733,94 @@
             font-size: 0.8rem;
         }
 
+        /* Game Viewer Styles */
+        .game-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-viewer.active {
+            display: flex;
+        }
+
+        .game-viewer-container {
+            width: 90%;
+            height: 80%;
+            background-color: var(--card-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-viewer-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-viewer-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .game-viewer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+
+        .game-viewer-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .game-viewer-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-viewer-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .game-viewer-btn.fullscreen {
+            background-color: var(--primary-color);
+        }
+
+        .game-viewer-btn.fullscreen:hover {
+            background-color: var(--secondary-color);
+        }
+
         /* Floating action button */
         .fab {
             position: fixed;
@@ -910,15 +840,6 @@
             z-index: 99;
             transition: all var(--transition-speed) ease;
             border: none;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-
-        .fab.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
         }
 
         .fab:hover {
@@ -1046,424 +967,7 @@
             opacity: 1;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity var(--transition-speed) ease;
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background-color: var(--card-color);
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 30px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-            transform: translateY(20px);
-            transition: transform var(--transition-speed) ease;
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--accent-color);
-            transform: scale(1.1);
-        }
-
-        .modal-header {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
-
-        .modal-subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .modal-body {
-            margin-bottom: 20px;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-            margin-bottom: 20px;
-        }
-
-        .modal-description {
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .modal-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .modal-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
-        }
-
-        .modal-meta-item i {
-            color: var(--accent-color);
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-        }
-
-        /* AI Chat Assistant */
-        .chat-assistant {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 100;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .chat-toggle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 10px 30px rgba(124, 77, 255, 0.4);
-            cursor: pointer;
-            border: none;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(124, 77, 255, 0.6);
-        }
-
-        .chat-container {
-            position: absolute;
-            bottom: 80px;
-            left: 0;
-            width: 350px;
-            max-width: 90vw;
-            background-color: var(--card-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            transform: scale(0.8);
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-speed) ease;
-            transform-origin: bottom left;
-        }
-
-        .chat-container.active {
-            transform: scale(1);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .chat-header {
-            padding: 15px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-title {
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        .chat-messages {
-            height: 300px;
-            overflow-y: auto;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message {
-            max-width: 80%;
-            padding: 10px 15px;
-            border-radius: 18px;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .message-ai {
-            align-self: flex-start;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-bottom-left-radius: 5px;
-        }
-
-        .message-user {
-            align-self: flex-end;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border-bottom-right-radius: 5px;
-        }
-
-        .chat-input-container {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .chat-input {
-            flex-grow: 1;
-            padding: 10px 15px;
-            border-radius: 50px;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--text-color);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-family: 'Poppins', sans-serif;
-            margin-right: 10px;
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .chat-send {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .chat-send:hover {
-            transform: scale(1.1);
-        }
-
-        /* Notifications */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            background-color: var(--card-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 1000;
-            transform: translateX(150%);
-            transition: transform var(--transition-speed) ease;
-        }
-
-        .notification.active {
-            transform: translateX(0);
-        }
-
-        .notification-icon {
-            font-size: 1.2rem;
-        }
-
-        .notification-success .notification-icon {
-            color: var(--success-color);
-        }
-
-        .notification-error .notification-icon {
-            color: var(--error-color);
-        }
-
-        .notification-warning .notification-icon {
-            color: var(--warning-color);
-        }
-
-        .notification-info .notification-icon {
-            color: var(--primary-color);
-        }
-
-        .notification-close {
-            margin-left: 10px;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-        }
-
-        /* User Profile */
-        .profile-btn {
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .profile-btn:hover {
-            color: var(--accent-color);
-        }
-
-        .profile-dropdown {
-            position: absolute;
-            top: calc(var(--header-height) + 10px);
-            right: 20px;
-            background-color: var(--card-color);
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            width: 250px;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-20px);
-            transition: all var(--transition-speed) ease;
-        }
-
-        .profile-dropdown.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .profile-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .profile-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .profile-email {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .profile-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .profile-menu li {
-            padding: 8px 0;
-        }
-
-        .profile-menu a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.2s ease;
-            padding: 5px;
-            border-radius: 4px;
-        }
-
-        .profile-menu a:hover {
-            color: var(--accent-color);
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        .profile-menu i {
-            width: 20px;
-            text-align: center;
-        }
-
         /* Responsive Design */
-        @media (max-width: 1200px) {
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-
         @media (max-width: 992px) {
             .games-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1472,24 +976,25 @@
             .color-options {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
+            
+            .game-viewer-container {
+                width: 95%;
+                height: 70%;
+            }
         }
 
         @media (max-width: 768px) {
             header {
+                flex-direction: column;
+                gap: 20px;
                 padding: 15px;
-            }
-            
-            .logo {
-                font-size: 1.8rem;
+                top: 10px;
             }
             
             .nav-buttons {
-                gap: 10px;
-            }
-            
-            .nav-btn {
-                padding: 10px 15px;
-                font-size: 0.85rem;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .welcome-message {
@@ -1513,9 +1018,25 @@
             .page-title, .settings-title, .changelog-title {
                 font-size: 2rem;
             }
-
-            .chat-container {
-                width: 300px;
+            
+            .game-viewer-container {
+                width: 100%;
+                height: 60%;
+                border-radius: 0;
+            }
+            
+            .game-viewer-header {
+                padding: 10px;
+            }
+            
+            .game-viewer-title {
+                font-size: 1rem;
+            }
+            
+            .game-viewer-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
             }
         }
 
@@ -1528,8 +1049,9 @@
                 font-size: 1rem;
             }
             
-            .nav-buttons {
-                display: none;
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
             }
             
             .games-grid {
@@ -1543,20 +1065,9 @@
             .settings-section {
                 padding: 20px;
             }
-
-            .modal-content {
-                width: 95%;
-                padding: 20px;
-            }
-
-            .chat-assistant {
-                left: 15px;
-                bottom: 15px;
-            }
-
-            .chat-container {
-                width: calc(100vw - 30px);
-                left: 0;
+            
+            .game-viewer-container {
+                height: 50%;
             }
         }
     </style>
@@ -1567,111 +1078,35 @@
         <div class="loader-spinner"></div>
     </div>
     
-    <!-- Notification System -->
-    <div class="notification" id="notification">
-        <div class="notification-icon"><i class="fas fa-check-circle"></i></div>
-        <div class="notification-content">Notification message here</div>
-        <button class="notification-close"><i class="fas fa-times"></i></button>
-    </div>
-
-    <!-- Game Details Modal -->
-    <div class="modal" id="gameModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalTitle">Game Title</h3>
-                <p class="modal-subtitle" id="modalCategory">Action • ★★★★☆</p>
-            </div>
-            <div class="modal-body">
-                <img src="" alt="Game Image" class="modal-image" id="modalImage">
-                <div class="modal-meta">
-                    <div class="modal-meta-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Last played: 2 days ago</span>
-                    </div>
-                    <div class="modal-meta-item">
-                        <i class="fas fa-heart"></i>
-                        <span>1.2K favorites</span>
-                    </div>
-                    <div class="modal-meta-item">
-                        <i class="fas fa-tag"></i>
-                        <span>Action, Adventure</span>
-                    </div>
-                </div>
-                <p class="modal-description" id="modalDescription">
-                    Game description goes here. This is a detailed description of the game and its features.
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button class="nav-btn" id="modalPlayBtn"><i class="fas fa-gamepad"></i> Play Now</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- AI Chat Assistant -->
-    <div class="chat-assistant">
-        <div class="chat-container" id="chatContainer">
-            <div class="chat-header">
-                <div class="chat-title">
-                    <i class="fas fa-robot"></i>
-                    <span>Game Assistant</span>
-                </div>
-                <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message message-ai">
-                    Hello! I'm your gaming assistant. How can I help you today?
+    <!-- Game Viewer -->
+    <div class="game-viewer" id="gameViewer">
+        <div class="game-viewer-container">
+            <div class="game-viewer-header">
+                <h3 class="game-viewer-title" id="gameViewerTitle">Game Title</h3>
+                <div class="game-viewer-controls">
+                    <button class="game-viewer-btn fullscreen" id="fullscreenBtn" title="Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button class="game-viewer-btn" id="closeGameBtn" title="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
             </div>
-            <div class="chat-input-container">
-                <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about games...">
-                <button class="chat-send" id="chatSend"><i class="fas fa-paper-plane"></i></button>
-            </div>
+            <iframe class="game-viewer-iframe" id="gameFrame" allowfullscreen></iframe>
         </div>
-        <button class="chat-toggle" id="chatToggle">
-            <i class="fas fa-robot"></i>
-        </button>
     </div>
-
-    <header>
-        <div class="logo">
-            <i class="fas fa-gamepad"></i>
-            <span>Hanshew Unblocked</span>
-        </div>
-        <div class="header-controls">
+    
+    <div class="container">
+        <header>
+            <div class="logo">Hanshew Unblocked</div>
             <div class="nav-buttons">
                 <button class="nav-btn" data-page="home"><i class="fas fa-home"></i> Home</button>
                 <button class="nav-btn" data-page="games"><i class="fas fa-gamepad"></i> Games</button>
                 <button class="nav-btn" data-page="settings"><i class="fas fa-cog"></i> Settings</button>
                 <button class="nav-btn" data-page="changelog"><i class="fas fa-list-alt"></i> Changelog</button>
             </div>
-            <button class="dark-mode-toggle" id="darkModeToggleBtn">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button class="profile-btn" id="profileBtn">
-                <i class="fas fa-user"></i>
-            </button>
-        </div>
-    </header>
+        </header>
 
-    <!-- Profile Dropdown -->
-    <div class="profile-dropdown" id="profileDropdown">
-        <div class="profile-header">
-            <div class="profile-avatar" id="profileAvatar">G</div>
-            <div>
-                <div class="profile-name" id="profileName">Guest</div>
-                <div class="profile-email" id="profileEmail">guest@example.com</div>
-            </div>
-        </div>
-        <ul class="profile-menu">
-            <li><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
-            <li><a href="#"><i class="fas fa-heart"></i> Favorites</a></li>
-            <li><a href="#"><i class="fas fa-history"></i> History</a></li>
-            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </div>
-
-    <div class="container">
         <div class="content">
             <!-- Home Page -->
             <div class="page active" id="home">
@@ -1702,26 +1137,19 @@
             <!-- Games Page -->
             <div class="page" id="games">
                 <div class="games-page">
-                    <div class="games-header">
-                        <h2 class="page-title">Game Collection</h2>
-                        <div class="search-container">
-                            <i class="fas fa-search search-icon"></i>
-                            <input type="text" class="search-input" id="gameSearch" placeholder="Search games...">
-                        </div>
+                    <h2 class="page-title">Game Collection</h2>
+                    
+                    <div class="category-filter" id="categoryFilter">
+                        <button class="category-btn active" data-category="all"><i class="fas fa-th"></i> All Games</button>
+                        <button class="category-btn" data-category="action"><i class="fas fa-running"></i> Action</button>
+                        <button class="category-btn" data-category="puzzle"><i class="fas fa-puzzle-piece"></i> Puzzle</button>
+                        <button class="category-btn" data-category="sports"><i class="fas fa-basketball-ball"></i> Sports</button>
+                        <button class="category-btn" data-category="horror"><i class="fas fa-ghost"></i> Horror</button>
+                        <button class="category-btn" data-category="shooting"><i class="fas fa-crosshairs"></i> Shooting</button>
+                        <button class="category-btn" data-category="cars"><i class="fas fa-car"></i> Cars</button>
                     </div>
                     
-                    <div class="games-controls">
-                        <div class="category-filter" id="categoryFilter">
-                            <button class="category-btn active" data-category="all"><i class="fas fa-th"></i> All</button>
-                            <button class="category-btn" data-category="action"><i class="fas fa-running"></i> Action</button>
-                            <button class="category-btn" data-category="puzzle"><i class="fas fa-puzzle-piece"></i> Puzzle</button>
-                            <button class="category-btn" data-category="sports"><i class="fas fa-basketball-ball"></i> Sports</button>
-                            <button class="category-btn" data-category="horror"><i class="fas fa-ghost"></i> Horror</button>
-                            <button class="category-btn" data-category="shooting"><i class="fas fa-crosshairs"></i> Shooting</button>
-                            <button class="category-btn" data-category="cars"><i class="fas fa-car"></i> Cars</button>
-                        </div>
-                        <button class="random-game-btn" id="randomGameBtn"><i class="fas fa-random"></i> Random Game</button>
-                    </div>
+                    <button class="random-game-btn" id="randomGameBtn"><i class="fas fa-random"></i> Random Game</button>
                     
                     <div class="games-grid" id="gamesGrid">
                         <!-- Games will be inserted here by JavaScript -->
@@ -1765,20 +1193,7 @@
                             <input type="checkbox" id="particlesToggle" checked>
                             <label for="particlesToggle">Particle Background</label>
                         </div>
-                        <button class="nav-btn" id="saveSettingsBtn" style="margin-top: 20px;"><i class="fas fa-save"></i> Save Settings</button>
-                    </div>
-
-                    <div class="settings-section">
-                        <h3 class="settings-section-title"><i class="fas fa-user"></i> Account</h3>
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" class="form-control" placeholder="Enter your username">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
-                        </div>
-                        <button class="nav-btn" id="updateAccountBtn"><i class="fas fa-user-edit"></i> Update Account</button>
+                        <button class="nav-btn" style="margin-top: 20px;"><i class="fas fa-save"></i> Save Settings</button>
                     </div>
                 </div>
             </div>
@@ -1863,20 +1278,7 @@
                         <div class="update-date"><i class="fas fa-calendar-alt"></i> 2025-3-13</div>
                         <ul class="update-features">
                             <li>Added Our New AI ChatBox.</li>
-                        </ul>
-                    </div>
-
-                    <div class="update-card">
-                        <div class="update-date"><i class="fas fa-calendar-alt"></i> 2025-3-27</div>
-                        <ul class="update-features">
-                            <li>Major UI overhaul with new features:</li>
-                            <li>Added game search functionality</li>
-                            <li>Implemented favorites system</li>
-                            <li>Added game details modal</li>
-                            <li>Improved user account system</li>
-                            <li>Enhanced mobile responsiveness</li>
-                            <li>Added notification system</li>
-                            <li>Improved game organization with tags</li>
+                            <li>Added in-page game viewer with fullscreen support.</li>
                         </ul>
                     </div>
                 </div>
@@ -1884,580 +1286,61 @@
         </div>
     </div>
 
-    <button class="fab" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <button class="fab" id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Enhanced Game Data with more details
+        // Game Data
         const games = [
-            { 
-                name: "1v1.lol", 
-                url: "https://skys.follobusiness.com/semag/1v1lol/index.html", 
-                category: "action", 
-                image: "https://img.utdstc.com/icon/983/22a/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de:200",
-                description: "1v1.LOL is a competitive online building and shooting game where you can test your skills against other players in 1v1 battles or free-for-all modes.",
-                tags: ["shooter", "battle-royale", "multiplayer"],
-                rating: 4.5,
-                players: "100K+",
-                lastUpdated: "2025-01-15"
-            },
-            { 
-                name: "Amazing Rope Police", 
-                url: "https://skys.follobusiness.com/semag/amazing-rope-police/index.html", 
-                category: "puzzle", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10dN4kjY-lCBWXN9X1FHTGaqJukp55Ic2rA&s",
-                description: "Use your rope skills to capture criminals and solve physics-based puzzles in this fun and challenging game.",
-                tags: ["physics", "puzzle", "strategy"],
-                rating: 4.0,
-                players: "50K+",
-                lastUpdated: "2025-02-10"
-            },
-            { 
-                name: "Basketball Stars", 
-                url: "https://skys.follobusiness.com/semag/basketball-stars/index.html", 
-                category: "sports", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxKMfiklMLmio5eJsDFtmN0QYrbSjEfp3EQg&s",
-                description: "Compete in fast-paced basketball matches against players from around the world in this exciting sports game.",
-                tags: ["basketball", "sports", "multiplayer"],
-                rating: 4.2,
-                players: "75K+",
-                lastUpdated: "2025-01-20"
-            },
-            { 
-                name: "Bitlife", 
-                url: "https://skys.follobusiness.com/semag/bitlife/index.html", 
-                category: "puzzle", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgC8sppTxg1g9FQjgKe81b0ErTRqe1o8S8ONmXCWyaSaROJIeU_XL2omxPeRK-VQe0P-E&usqp=CAU",
-                description: "Live your virtual life from birth to death, making choices that shape your character's destiny in this text-based life simulator.",
-                tags: ["simulation", "life", "choices"],
-                rating: 4.7,
-                players: "200K+",
-                lastUpdated: "2025-03-01"
-            },
-            { 
-                name: "Cookie Clicker", 
-                url: "https://skys.follobusiness.com/semag/cookieclicker/index.html", 
-                category: "puzzle", 
-                image: "https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok",
-                description: "The classic idle clicker game where you bake as many cookies as possible by clicking and upgrading your cookie production.",
-                tags: ["idle", "clicker", "incremental"],
-                rating: 4.3,
-                players: "150K+",
-                lastUpdated: "2025-02-05"
-            },
-            { 
-                name: "Drift Hunters", 
-                url: "https://skys.follobusiness.com/semag/drifthunters/index.html", 
-                category: "cars", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7rbvae6BZ2dxgEP7LFuu8yHn_yViQk5dIqw&s",
-                description: "Master the art of drifting in this realistic driving simulator with customizable cars and challenging tracks.",
-                tags: ["racing", "driving", "simulator"],
-                rating: 4.6,
-                players: "120K+",
-                lastUpdated: "2025-02-15"
-            },
-            { 
-                name: "Drive Mad", 
-                url: "https://skys.follobusiness.com/semag/drivemad/index.html", 
-                category: "action", 
-                image: "https://images.sftcdn.net/images/t_app-icon-m/p/324f21b7-bddf-42a2-846e-f40d1521980f/1576990609/drive-mad-logo",
-                description: "A crazy driving game with impossible tracks and physics that will test your skills and patience.",
-                tags: ["driving", "challenge", "physics"],
-                rating: 3.9,
-                players: "80K+",
-                lastUpdated: "2025-01-25"
-            },
-            { 
-                name: "StackTris", 
-                url: "https://artedu1808.github.io/g6/stacktris/", 
-                category: "puzzle", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbX_bg4oxwVxrDtoO3TKvO751EwoNXfODhaw&s",
-                description: "A unique twist on the classic Tetris game where you stack blocks in a 3D environment.",
-                tags: ["tetris", "puzzle", "stacking"],
-                rating: 4.1,
-                players: "60K+",
-                lastUpdated: "2025-02-20"
-            },
-            { 
-                name: "TABS", 
-                url: "https://skys.follobusiness.com/semag/tabs/index.html", 
-                category: "action", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpBDcgmPxH3ER70_wiRRLUaG_H-YqjMusdOQ&s",
-                description: "Totally Accurate Battle Simulator - a wacky physics-based battle simulator with hilarious results.",
-                tags: ["battle", "physics", "simulator"],
-                rating: 4.8,
-                players: "180K+",
-                lastUpdated: "2025-03-05"
-            },
-            { 
-                name: "Gladihoppers", 
-                url: "https://skys.follobusiness.com/semag/gladihoppers/index.html", 
-                category: "action", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ZEDsWmS2qXJAD806gandhucVQ1ZX_2exPQ&s",
-                description: "Become a gladiator in this physics-based fighting game with ragdoll physics and intense battles.",
-                tags: ["fighting", "physics", "gladiator"],
-                rating: 4.0,
-                players: "90K+",
-                lastUpdated: "2025-02-12"
-            },
-            { 
-                name: "Ocarina of Time", 
-                url: "https://skys.follobusiness.com/semag/ocarinaoftime/index.html", 
-                category: "action", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUOQgd8zgLY3lb7o2asgXoTosZJI0czWOCcQ&s",
-                description: "The classic Zelda adventure game now playable in your browser with all its legendary gameplay.",
-                tags: ["adventure", "rpg", "classic"],
-                rating: 4.9,
-                players: "250K+",
-                lastUpdated: "2025-01-10"
-            },
-            { 
-                name: "Eaglercraft", 
-                url: "https://skys.follobusiness.com/semag/eaglercraft/index.html", 
-                category: "action", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJIRxDkgIg4KyeylGeXGWKnrSiSb0Jevonew&s",
-                description: "A browser-based version of Minecraft that runs smoothly with multiplayer support.",
-                tags: ["sandbox", "building", "multiplayer"],
-                rating: 4.7,
-                players: "300K+",
-                lastUpdated: "2025-03-10"
-            },
-            { 
-                name: "OVO", 
-                url: "https://skys.follobusiness.com/semag/ovo/index.html", 
-                category: "puzzle", 
-                image: "https://play-lh.googleusercontent.com/uUknF-T1uzoMBLoR7CJo2R6GT_2RYs9qxXSvzCxsxZ-i7KD43k3RsdCyw7xXESIkOUg",
-                description: "A challenging platformer where you control an egg trying to reach the goal without breaking.",
-                tags: ["platformer", "challenge", "precision"],
-                rating: 4.2,
-                players: "70K+",
-                lastUpdated: "2025-02-18"
-            },
-            { 
-                name: "Poly Track", 
-                url: "https://skys.follobusiness.com/semag/polytrack/index.html", 
-                category: "sports", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_p_VpIc58Jo0Oi6hfv7Hc8Jl66nfkzBZAqg&s",
-                description: "A minimalist racing game with polygonal graphics and smooth controls for fast-paced action.",
-                tags: ["racing", "minimalist", "speed"],
-                rating: 3.8,
-                players: "65K+",
-                lastUpdated: "2025-01-30"
-            },
-            { 
-                name: "Monkey Mart", 
-                url: "https://skys.follobusiness.com/semag/monkeymart/index.html", 
-                category: "puzzle", 
-                image: "https://play-lh.googleusercontent.com/rWReIdyvDaYJPeOxn7hbC0b-96ixGpQKM_EndiQa3SUME8TtI_rNUcI4qsw5teK9mqk",
-                description: "Run your own supermarket as a monkey in this fun management simulation game.",
-                tags: ["management", "simulation", "monkey"],
-                rating: 4.0,
-                players: "85K+",
-                lastUpdated: "2025-02-22"
-            },
-            { 
-                name: "Paper.io", 
-                url: "https://skys.follobusiness.com/semag/paperio/index.html", 
-                category: "action", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuVWvKjEncCo4AJdcEDRT3Zmd45ocxJ478sA&s",
-                description: "Claim territory and conquer opponents in this addictive multiplayer .io game.",
-                tags: ["multiplayer", "strategy", ".io"],
-                rating: 4.4,
-                players: "160K+",
-                lastUpdated: "2025-02-08"
-            },
-            { 
-                name: "Snow Rider 3D", 
-                url: "https://skys.follobusiness.com/semag/snowrider3d/index.html", 
-                category: "sports", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz7dK4-pB3Qu1NepZzKVPMyvED5LZcbOHiYg&s",
-                description: "Experience the thrill of snowboarding down mountain slopes with realistic physics.",
-                tags: ["snowboarding", "winter", "sports"],
-                rating: 4.1,
-                players: "95K+",
-                lastUpdated: "2025-01-18"
-            },
-            { 
-                name: "Windows 11", 
-                url: "https://skys.follobusiness.com/sppa/11/index.html", 
-                category: "puzzle", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW8hhdmR3JeUl7CtEsJLZGajrLsqn-VdaRmIlYKmBT2Q4SZ4MEDCsJ6qqiidgoKwLtf4s&usqp=CAU",
-                description: "A simulation of Windows 11 in your browser, complete with apps and games.",
-                tags: ["simulation", "windows", "desktop"],
-                rating: 3.7,
-                players: "55K+",
-                lastUpdated: "2025-02-25"
-            },
-            { 
-                name: "Stickman Climb", 
-                url: "https://skys.follobusiness.com/semag/stickmanclimb/index.html", 
-                category: "action", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyYOPQELLgA4B84ZOD8zJsQYmlM6iykihp9A&s",
-                description: "Climb as high as you can with your stickman in this physics-based climbing game.",
-                tags: ["climbing", "physics", "stickman"],
-                rating: 3.9,
-                players: "75K+",
-                lastUpdated: "2025-01-22"
-            },
-            { 
-                name: "Madalin Cars", 
-                url: "https://skys.follobusiness.com/semag/madalincars/index.html", 
-                category: "cars", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIkhLK2mUqNFdSj6RIx5panoFOSa1pcOZ-hQ&s",
-                description: "Drive and stunt with a variety of cars in this fun driving simulator.",
-                tags: ["driving", "stunts", "cars"],
-                rating: 4.3,
-                players: "110K+",
-                lastUpdated: "2025-02-28"
-            },
-            { 
-                name: "Drift Boss", 
-                url: "https://skys.follobusiness.com/semag/drift-boss/index.html", 
-                category: "cars", 
-                image: "https://m.media-amazon.com/images/I/71Rvyj1gI1L.png",
-                description: "Test your drifting skills in this challenging one-button driving game.",
-                tags: ["drifting", "racing", "skill"],
-                rating: 4.0,
-                players: "130K+",
-                lastUpdated: "2025-03-08"
-            },
-            { 
-                name: "Age Of War", 
-                url: "https://skys.follobusiness.com/semag/ageofwar/index.html", 
-                category: "action", 
-                image: "https://play-lh.googleusercontent.com/cez7h97liCyy1oqCsBRy0tzIbdRXDFjGs6XuAyPCbl2PHglm_wl8KydulnJWjMlRgGPc",
-                description: "Command your army through the ages in this classic strategy game.",
-                tags: ["strategy", "war", "evolution"],
-                rating: 4.5,
-                players: "170K+",
-                lastUpdated: "2025-01-05"
-            },
-            { 
-                name: "Kick That Buddy", 
-                url: "https://skys.follobusiness.com/semag/kickthatbuddy/index.html", 
-                category: "action", 
-                image: "https://lh3.googleusercontent.com/H_Te1sCRc5fwgpKDvcI-crLI3GoT48zOc_iDN4H9wEsI5vLuzJN33BegsU9rJHbLVOM=s180",
-                description: "A stress-relief game where you can kick and destroy a ragdoll buddy with various weapons.",
-                tags: ["ragdoll", "destruction", "stress-relief"],
-                rating: 4.2,
-                players: "140K+",
-                lastUpdated: "2025-02-14"
-            },
-            { 
-                name: "MajorasMask", 
-                url: "https://skys.follobusiness.com/semag/majorasmask/index.html", 
-                category: "action", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpNGnnG9j5ftKngwCPUKS1ioFJS6cQVpzEKg&s",
-                description: "The legendary Zelda adventure with a time-traveling twist, now playable in your browser.",
-                tags: ["adventure", "zelda", "time-travel"],
-                rating: 4.8,
-                players: "220K+",
-                lastUpdated: "2025-01-12"
-            },
-            { 
-                name: "Rooftop Snipers 2", 
-                url: "https://skys.follobusiness.com/semag/rooftopsnipers2/index.html", 
-                category: "shooting", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKY2uliGeNKbqaj4zsKGgQih6z4WKF7mgkew&s",
-                description: "A hilarious 2-player sniper duel game where you battle on rooftops.",
-                tags: ["shooter", "duel", "2-player"],
-                rating: 4.1,
-                players: "100K+",
-                lastUpdated: "2025-02-17"
-            },
-            { 
-                name: "Jetpack Joyride", 
-                url: "https://skys.follobusiness.com/semag/jetpackjoyride/index.html", 
-                category: "action", 
-                image: "https://play-lh.googleusercontent.com/3e_iyy1dolGSHqKFmwsao8SiMmqOtCuwD4CyKToLHoK34cchcH5PlG2VhOoE2_j-7FMH",
-                description: "Fly as far as you can with your jetpack in this endless runner classic.",
-                tags: ["endless-runner", "jetpack", "arcade"],
-                rating: 4.6,
-                players: "190K+",
-                lastUpdated: "2025-03-03"
-            },
-            { 
-                name: "Retro Bowl", 
-                url: "https://skys.follobusiness.com/semag/retrobowl/index.html", 
-                category: "sports", 
-                image: "https://upload.wikimedia.org/wikipedia/en/b/bf/Retro_Bowl_cover.png",
-                description: "A retro-style American football game with simple controls and deep strategy.",
-                tags: ["football", "retro", "sports"],
-                rating: 4.7,
-                players: "210K+",
-                lastUpdated: "2025-01-28"
-            },
-            { 
-                name: "Retro Bowl College", 
-                url: "https://skys.follobusiness.com/semag/retrobowlcollege/index.html", 
-                category: "sports", 
-                image: "https://play-lh.googleusercontent.com/-BT8C-1UPYWouyjVvWYgaar_-xV4IQvX4Bvib3koGEGiy6UsHlt0RgYpUrdTDfC2y0ct=w240-h480-rw",
-                description: "The college football version of Retro Bowl with all the same great gameplay.",
-                tags: ["football", "college", "retro"],
-                rating: 4.5,
-                players: "180K+",
-                lastUpdated: "2025-02-07"
-            },
-            { 
-                name: "Fancy Pants 2", 
-                url: "https://skys.follobusiness.com/semag/fancypantsadventures2/index.html", 
-                category: "action", 
-                image: "https://play-lh.googleusercontent.com/uUknF-T1uzoMBLoR7CJo2R6GT_2RYs9qxXSvzCxsxZ-i7KD43k3RsdCyw7xXESIkOUg",
-                description: "The stylish platformer with fluid animations and challenging levels.",
-                tags: ["platformer", "adventure", "fancy"],
-                rating: 4.4,
-                players: "150K+",
-                lastUpdated: "2025-02-24"
-            },
-            { 
-                name: "Just Fall.lol", 
-                url: "https://skys.follobusiness.com/semag/justfalllol/index.html", 
-                category: "action", 
-                image: "https://play-lh.googleusercontent.com/-0rSllZ8as88Jcs3iZ7-JCFyTb3YLB-HjR7bY7P6q_2MAswmDH4h1qNPfFiaZqzkkg",
-                description: "A hilarious multiplayer game where you try to be the last one standing on a collapsing platform.",
-                tags: ["multiplayer", "battle-royale", "platformer"],
-                rating: 4.3,
-                players: "170K+",
-                lastUpdated: "2025-03-12"
-            },
-            { 
-                name: "FNAF", 
-                url: "https://skys.follobusiness.com/semag/fnaf/index.html", 
-                category: "horror", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBD8hhK3t1Of7RjalJdvHwFBHgVaDQQSTGw&s",
-                description: "The original Five Nights at Freddy's horror game where you survive against animatronics.",
-                tags: ["horror", "survival", "jumpscares"],
-                rating: 4.6,
-                players: "230K+",
-                lastUpdated: "2025-02-19"
-            },
-            { 
-                name: "FNAF 2", 
-                url: "https://skys.follobusiness.com/semag/fnaf2/index.html", 
-                category: "horror", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYDtoidZbkDujUtlGoxp_P20iT-PQykJ-jYpNfItcIZMGmcxnf03t05PLxG8UMyGUcNe0&usqp=CAU",
-                description: "The sequel to FNAF with more animatronics and even scarier gameplay.",
-                tags: ["horror", "sequel", "survival"],
-                rating: 4.7,
-                players: "210K+",
-                lastUpdated: "2025-02-21"
-            },
-            { 
-                name: "FNAF 3", 
-                url: "https://skys.follobusiness.com/semag/fnaf3/index.html", 
-                category: "horror", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbXpYZJ1QnUK0LiqIta3tWI6u-CF4lJ_O_3w&s",
-                description: "The third installment in the FNAF series with Springtrap as the main antagonist.",
-                tags: ["horror", "springtrap", "survival"],
-                rating: 4.5,
-                players: "190K+",
-                lastUpdated: "2025-02-23"
-            },
-            { 
-                name: "FNAF 4", 
-                url: "https://skys.follobusiness.com/semag/fnaf4/index.html", 
-                category: "horror", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPKA0wQi8NL5cTdqD7f2WA5r86Q4JYhnqhQQ&s",
-                description: "The nightmare continues in your own bedroom in this terrifying FNAF installment.",
-                tags: ["horror", "nightmare", "survival"],
-                rating: 4.8,
-                players: "220K+",
-                lastUpdated: "2025-02-26"
-            },
-            { 
-                name: "FunnyShooter1", 
-                url: "https://skys.follobusiness.com/semag/funnyshooter/index.html", 
-                category: "shooting", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuJ2LWGMUtzvCYWJddKS9aEWtBA9UXJBEunA&s",
-                description: "A fun and wacky shooting game with colorful graphics and simple controls.",
-                tags: ["shooter", "arcade", "funny"],
-                rating: 3.9,
-                players: "110K+",
-                lastUpdated: "2025-01-14"
-            },
-            { 
-                name: "FunnyShooter2", 
-                url: "https://skys.follobusiness.com/semag/funnyshooter2/index.html", 
-                category: "shooting", 
-                image: "https://images.sftcdn.net/images/t_app-icon-m/p/5c2d6858-0333-4049-a7b4-bf103c84af35/1608539346/funny-shooter-2-bjr-logo",
-                description: "The sequel to Funny Shooter with more weapons, enemies, and hilarious action.",
-                tags: ["shooter", "sequel", "arcade"],
-                rating: 4.1,
-                players: "130K+",
-                lastUpdated: "2025-02-02"
-            },
-            { 
-                name: "8-Ball-Pool", 
-                url: "https://artedu1808.github.io/g8/8-ball-pool/", 
-                category: "sports", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxdG_N17tO9kGtCEnFR7KXki36DHW-yJMe4g&s",
-                description: "Play pool against the computer or friends in this realistic 8-ball pool game.",
-                tags: ["pool", "sports", "multiplayer"],
-                rating: 4.4,
-                players: "160K+",
-                lastUpdated: "2025-03-07"
-            },
-            { 
-                name: "Bullet Force", 
-                url: "https://artedu1808.github.io/g7/bullet-force/", 
-                category: "shooting", 
-                image: "https://play-lh.googleusercontent.com/TGutKZy5JkPsQzFhFoqLBQMrpKkpHNaLk_kosXUQ9S_PCNpE4BXRbVgZwDOR67KcnM9P",
-                description: "A first-person shooter with modern graphics and intense multiplayer action.",
-                tags: ["fps", "shooter", "multiplayer"],
-                rating: 4.6,
-                players: "240K+",
-                lastUpdated: "2025-03-09"
-            },
-            { 
-                name: "Offroader-V5", 
-                url: "https://artedu1808.github.io/g5/offroader-v5/", 
-                category: "cars", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAToQk1ywQVdc-wwLqCWdi5_idfBx_g-BVg&s",
-                description: "Take your offroad vehicle through challenging terrain in this realistic driving game.",
-                tags: ["offroad", "driving", "simulator"],
-                rating: 4.2,
-                players: "140K+",
-                lastUpdated: "2025-02-27"
-            },
-            { 
-                name: "BowlingStars", 
-                url: "https://artedu1808.github.io/g2/bowling-stars/", 
-                category: "sports", 
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfXJDdmOQso8dtEbg0ePcVxPOn7OqcLiZG_A&s",
-                description: "A fun and competitive bowling game with power-ups and special balls.",
-                tags: ["bowling", "sports", "arcade"],
-                rating: 4.0,
-                players: "120K+",
-                lastUpdated: "2025-03-11"
-            },
-            { 
-                name: "EggClicker", 
-                url: "https://vionicofficial2.github.io/EggClicker/", 
-                category: "puzzle", 
-                image: "https://images.vexels.com/media/users/3/199372/isolated/preview/1c4a614126e716a3c93fd5b9d9b0254b-fried-egg-illustration.png",
-                description: "An egg-themed clicker game where you hatch eggs and upgrade your egg production.",
-                tags: ["clicker", "idle", "eggs"],
-                rating: 3.8,
-                players: "90K+",
-                lastUpdated: "2025-03-15"
-            }
+            { name: "1v1.lol", url: "https://skys.follobusiness.com/semag/1v1lol/index.html", category: "action", image: "https://img.utdstc.com/icon/983/22a/98322a3b2be892eed31589906ffd949b68bcccc9a21ba562987965b5ec6bc6de:200" },
+            { name: "Amazing Rope Police", url: "https://skys.follobusiness.com/semag/amazing-rope-police/index.html", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10dN4kjY-lCBWXN9X1FHTGaqJukp55Ic2rA&s" },
+            { name: "Basketball Stars", url: "https://skys.follobusiness.com/semag/basketball-stars/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxKMfiklMLmio5eJsDFtmN0QYrbSjEfp3EQg&s" },
+            { name: "Bitlife", url: "https://skys.follobusiness.com/semag/bitlife/index.html", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgC8sppTxg1g9FQjgKe81b0ErTRqe1o8S8ONmXCWyaSaROJIeU_XL2omxPeRK-VQe0P-E&usqp=CAU" },
+            { name: "Cookie Clicker", url: "https://skys.follobusiness.com/semag/cookieclicker/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok" },
+            { name: "Drift Hunters", url: "https://skys.follobusiness.com/semag/drifthunters/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7rbvae6BZ2dxgEP7LFuu8yHn_yViQk5dIqw&s" },
+            { name: "Drive Mad", url: "https://skys.follobusiness.com/semag/drivemad/index.html", category: "action", image: "https://images.sftcdn.net/images/t_app-icon-m/p/324f21b7-bddf-42a2-846e-f40d1521980f/1576990609/drive-mad-logo" },
+            { name: "StackTris", url: "https://artedu1808.github.io/g6/stacktris/", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbX_bg4oxwVxrDtoO3TKvO751EwoNXfODhaw&s" },
+            { name: "TABS", url: "https://skys.follobusiness.com/semag/tabs/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpBDcgmPxH3ER70_wiRRLUaG_H-YqjMusdOQ&s" },
+            { name: "Gladihoppers", url: "https://skys.follobusiness.com/semag/gladihoppers/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ZEDsWmS2qXJAD806gandhucVQ1ZX_2exPQ&s" },
+            { name: "Ocarina of Time", url: "https://skys.follobusiness.com/semag/ocarinaoftime/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUOQgd8zgLY3lb7o2asgXoTosZJI0czWOCcQ&s" },
+            { name: "Eaglercraft", url: "https://skys.follobusiness.com/semag/eaglercraft/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJIRxDkgIg4KyeylGeXGWKnrSiSb0Jevonew&s" },
+            { name: "OVO", url: "https://skys.follobusiness.com/semag/ovo/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/uUknF-T1uzoMBLoR7CJo2R6GT_2RYs9qxXSvzCxsxZ-i7KD43k3RsdCyw7xXESIkOUg" },
+            { name: "Poly Track", url: "https://skys.follobusiness.com/semag/polytrack/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_p_VpIc58Jo0Oi6hfv7Hc8Jl66nfkzBZAqg&s" },
+            { name: "Monkey Mart", url: "https://skys.follobusiness.com/semag/monkeymart/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/rWReIdyvDaYJPeOxn7hbC0b-96ixGpQKM_EndiQa3SUME8TtI_rNUcI4qsw5teK9mqk" },
+            { name: "Paper.io", url: "https://skys.follobusiness.com/semag/paperio/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuVWvKjEncCo4AJdcEDRT3Zmd45ocxJ478sA&s" },
+            { name: "Snow Rider 3D", url: "https://skys.follobusiness.com/semag/snowrider3d/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz7dK4-pB3Qu1NepZzKVPMyvED5LZcbOHiYg&s" },
+            { name: "Windows 11", url: "https://skys.follobusiness.com/sppa/11/index.html", category: "puzzle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW8hhdmR3JeUl7CtEsJLZGajrLsqn-VdaRmIlYKmBT2Q4SZ4MEDCsJ6qqiidgoKwLtf4s&usqp=CAU" },
+            { name: "Stickman Climb", url: "https://skys.follobusiness.com/semag/stickmanclimb/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyYOPQELLgA4B84ZOD8zJsQYmlM6iykihp9A&s" },
+            { name: "Madalin Cars", url: "https://skys.follobusiness.com/semag/madalincars/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIkhLK2mUqNFdSj6RIx5panoFOSa1pcOZ-hQ&s" },
+            { name: "Drift Boss", url: "https://skys.follobusiness.com/semag/drift-boss/index.html", category: "sports", image: "https://m.media-amazon.com/images/I/71Rvyj1gI1L.png" },
+            { name: "Age Of War", url: "https://skys.follobusiness.com/semag/ageofwar/index.html", category: "action", image: "https://play-lh.googleusercontent.com/cez7h97liCyy1oqCsBRy0tzIbdRXDFjGs6XuAyPCbl2PHglm_wl8KydulnJWjMlRgGPc" },
+            { name: "Kick That Buddy", url: "https://skys.follobusiness.com/semag/kickthatbuddy/index.html", category: "action", image: "https://lh3.googleusercontent.com/H_Te1sCRc5fwgpKDvcI-crLI3GoT48zOc_iDN4H9wEsI5vLuzJN33BegsU9rJHbLVOM=s180" },
+            { name: "MajorasMask", url: "https://skys.follobusiness.com/semag/majorasmask/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpNGnnG9j5ftKngwCPUKS1ioFJS6cQVpzEKg&s" },
+            { name: "Rooftop Snipers 2", url: "https://skys.follobusiness.com/semag/rooftopsnipers2/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKY2uliGeNKbqaj4zsKGgQih6z4WKF7mgkew&s" },
+            { name: "Jetpack Joyride", url: "https://skys.follobusiness.com/semag/jetpackjoyride/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/3e_iyy1dolGSHqKFmwsao8SiMmqOtCuwD4CyKToLHoK34cchcH5PlG2VhOoE2_j-7FMH" },
+            { name: "Retro Bowl", url: "https://skys.follobusiness.com/semag/retrobowl/index.html", category: "sports", image: "https://upload.wikimedia.org/wikipedia/en/b/bf/Retro_Bowl_cover.png" },
+            { name: "Retro Bowl College", url: "https://skys.follobusiness.com/semag/retrobowlcollege/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/-BT8C-1UPYWouyjVvWYgaar_-xV4IQvX4Bvib3koGEGiy6UsHlt0RgYpUrdTDfC2y0ct=w240-h480-rw" },
+            { name: "Fancy Pants 2", url: "https://skys.follobusiness.com/semag/fancypantsadventures2/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/uUknF-T1uzoMBLoR7CJo2R6GT_2RYs9qxXSvzCxsxZ-i7KD43k3RsdCyw7xXESIkOUg" },
+            { name: "Just Fall.lol", url: "https://skys.follobusiness.com/semag/justfalllol/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/-0rSllZ8as88Jcs3iZ7-JCFyTb3YLB-HjR7bY7P6q_2MAswmDH4h1qNPfFiaZqzkkg" },
+            { name: "fnaf", url: "https://skys.follobusiness.com/semag/fnaf/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBD8hhK3t1Of7RjalJdvHwFBHgVaDQQSTGw&s" },
+            { name: "fnaf 2", url: "https://skys.follobusiness.com/semag/fnaf2/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYDtoidZbkDujUtlGoxp_P20iT-PQykJ-jYpNfItcIZMGmcxnf03t05PLxG8UMyGUcNe0&usqp=CAU" },
+            { name: "fnaf 3", url: "https://skys.follobusiness.com/semag/fnaf3/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbXpYZJ1QnUK0LiqIta3tWI6u-CF4lJ_O_3w&s" },
+            { name: "fnaf 4", url: "https://skys.follobusiness.com/semag/fnaf4/index.html", category: "horror", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPKA0wQi8NL5cTdqD7f2WA5r86Q4JYhnqhQQ&s" },
+            { name: "FunnyShooter1", url: "https://skys.follobusiness.com/semag/funnyshooter/index.html", category: "shooting", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuJ2LWGMUtzvCYWJddKS9aEWtBA9UXJBEunA&s" },
+            { name: "FunnyShooter2", url: "https://skys.follobusiness.com/semag/funnyshooter2/index.html", category: "shooting", image: "https://images.sftcdn.net/images/t_app-icon-m/p/5c2d6858-0333-4049-a7b4-bf103c84af35/1608539346/funny-shooter-2-bjr-logo" },
+            { name: "8-Ball-Pool", url: "https://artedu1808.github.io/g8/8-ball-pool/", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxdG_N17tO9kGtCEnFR7KXki36DHW-yJMe4g&s" },
+            { name: "Bullet Force", url: "https://artedu1808.github.io/g7/bullet-force/", category: "shooting", image: "https://play-lh.googleusercontent.com/TGutKZy5JkPsQzFhFoqLBQMrpKkpHNaLk_kosXUQ9S_PCNpE4BXRbVgZwDOR67KcnM9P" },
+            { name: "Offroader-V5", url: "https://artedu1808.github.io/g5/offroader-v5/", category: "cars", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAToQk1ywQVdc-wwLqCWdi5_idfBx_g-BVg&s" },
+            { name: "BowlingStars", url: "https://artedu1808.github.io/g2/bowling-stars/", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfXJDdmOQso8dtEbg0ePcVxPOn7OqcLiZG_A&s" },
+            { name: "EggClicker", url: "https://vionicofficial2.github.io/EggClicker/", category: "puzzle", image: "https://images.vexels.com/media/users/3/199372/isolated/preview/1c4a614126e716a3c93fd5b9d9b0254b-fried-egg-illustration.png" }
         ];
 
-        // User Data and State Management
-        let user = {
-            username: "Guest",
-            email: "guest@example.com",
-            favorites: [],
-            history: [],
-            settings: {
-                theme: "purple",
-                darkMode: true,
-                particles: true,
-                animations: "enabled"
-            }
-        };
-
-        // Load user data from localStorage
-        function loadUserData() {
-            const savedUser = localStorage.getItem('hanshewUser');
-            if (savedUser) {
-                user = JSON.parse(savedUser);
-                updateProfileUI();
-                applySettings();
-            }
-        }
-
-        // Save user data to localStorage
-        function saveUserData() {
-            localStorage.setItem('hanshewUser', JSON.stringify(user));
-            showNotification('Settings saved successfully!', 'success');
-        }
-
-        // Update profile UI elements
-        function updateProfileUI() {
-            document.getElementById('profileName').textContent = user.username;
-            document.getElementById('profileEmail').textContent = user.email;
-            document.getElementById('profileAvatar').textContent = user.username.charAt(0).toUpperCase();
-            document.getElementById('username').value = user.username;
-            document.getElementById('email').value = user.email;
-        }
-
-        // Apply user settings to the UI
-        function applySettings() {
-            // Theme
-            changeTheme(user.settings.theme);
-            document.querySelector(`.color-option[data-theme="${user.settings.theme}"]`).classList.add('selected');
-            
-            // Dark mode
-            document.getElementById('darkModeToggle').checked = user.settings.darkMode;
-            toggleDarkMode(user.settings.darkMode);
-            
-            // Particles
-            document.getElementById('particlesToggle').checked = user.settings.particles;
-            toggleParticles(user.settings.particles);
-            
-            // Animations
-            document.getElementById('animations').value = user.settings.animations;
-        }
-
-        // Toggle dark mode
-        function toggleDarkMode(enabled) {
-            const root = document.documentElement;
-            if (enabled) {
-                root.style.setProperty('--background-color', '#121212');
-                root.style.setProperty('--card-color', '#252525');
-                root.style.setProperty('--text-color', '#ffffff');
-                root.style.setProperty('--text-secondary', 'rgba(255, 255, 255, 0.7)');
-                document.getElementById('darkModeToggleBtn').innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                root.style.setProperty('--background-color', '#f5f5f5');
-                root.style.setProperty('--card-color', '#ffffff');
-                root.style.setProperty('--text-color', '#333333');
-                root.style.setProperty('--text-secondary', 'rgba(0, 0, 0, 0.7)');
-                document.getElementById('darkModeToggleBtn').innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        }
-
-        // Toggle particles
-        function toggleParticles(enabled) {
-            const particles = document.getElementById('particles-js');
-            particles.style.display = enabled ? 'block' : 'none';
-        }
-
-        // Show notification
-        function showNotification(message, type = 'info') {
-            const notification = document.getElementById('notification');
-            notification.className = `notification notification-${type}`;
-            notification.querySelector('.notification-content').textContent = message;
-            
-            // Set appropriate icon
-            const icon = notification.querySelector('.notification-icon');
-            switch(type) {
-                case 'success':
-                    icon.innerHTML = '<i class="fas fa-check-circle"></i>';
-                    break;
-                case 'error':
-                    icon.innerHTML = '<i class="fas fa-times-circle"></i>';
-                    break;
-                case 'warning':
-                    icon.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
-                    break;
-                default:
-                    icon.innerHTML = '<i class="fas fa-info-circle"></i>';
-            }
-            
-            notification.classList.add('active');
-            
-            // Auto hide after 5 seconds
-            setTimeout(() => {
-                notification.classList.remove('active');
-            }, 5000);
-        }
-
-        // Close notification
-        document.querySelector('.notification-close').addEventListener('click', function() {
-            document.getElementById('notification').classList.remove('active');
-        });
+        // Game Viewer Elements
+        const gameViewer = document.getElementById('gameViewer');
+        const gameFrame = document.getElementById('gameFrame');
+        const gameViewerTitle = document.getElementById('gameViewerTitle');
+        const closeGameBtn = document.getElementById('closeGameBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
 
         // Page Navigation
         document.querySelectorAll('.nav-btn, .feature-card').forEach(btn => {
@@ -2509,7 +1392,6 @@
                 
                 const theme = this.getAttribute('data-theme');
                 changeTheme(theme);
-                user.settings.theme = theme;
             });
         });
 
@@ -2560,8 +1442,8 @@
             }
         }
 
-        // Render Games with search and filter functionality
-        function renderGames(filterCategory = 'all', searchQuery = '') {
+        // Render Games
+        function renderGames(filterCategory = 'all') {
             const gamesGrid = document.getElementById('gamesGrid');
             gamesGrid.innerHTML = '';
             
@@ -2577,137 +1459,89 @@
             setTimeout(() => {
                 gamesGrid.innerHTML = '';
                 
-                let filteredGames = games;
-                
-                // Apply category filter
-                if (filterCategory !== 'all') {
-                    filteredGames = filteredGames.filter(game => game.category === filterCategory);
-                }
-                
-                // Apply search filter
-                if (searchQuery) {
-                    const query = searchQuery.toLowerCase();
-                    filteredGames = filteredGames.filter(game => 
-                        game.name.toLowerCase().includes(query) || 
-                        game.description.toLowerCase().includes(query) ||
-                        game.tags.some(tag => tag.toLowerCase().includes(query))
-                    );
-                }
+                const filteredGames = filterCategory === 'all' 
+                    ? games 
+                    : games.filter(game => game.category === filterCategory);
                 
                 if (filteredGames.length === 0) {
-                    gamesGrid.innerHTML = `
-                        <div class="no-games" style="grid-column: 1/-1; text-align: center; padding: 40px;">
-                            <i class="fas fa-gamepad" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: 20px;"></i>
-                            <h3 style="color: var(--text-color);">No games found</h3>
-                            <p style="color: var(--text-secondary);">Try a different search or category</p>
-                        </div>
-                    `;
+                    gamesGrid.innerHTML = '<div class="no-games" style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary)">No games found in this category.</div>';
                     return;
                 }
                 
                 filteredGames.forEach(game => {
-                    const isFavorite = user.favorites.includes(game.name);
                     const gameCard = document.createElement('div');
                     gameCard.className = 'game-card';
                     gameCard.innerHTML = `
                         <div class="game-image-container">
-                            <img src="${game.image}" alt="${game.name}" class="game-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/6e48aa/ffffff?text=Game+Image'">
-                            ${game.rating >= 4.5 ? '<div class="game-badge">Popular</div>' : ''}
+                            <img src="${game.image}" alt="${game.name}" class="game-image" onerror="this.src='https://via.placeholder.com/400x200/6e48aa/ffffff?text=Game+Image'">
                         </div>
                         <div class="game-info">
-                            <div class="game-header">
-                                <h3 class="game-title">${game.name}</h3>
-                                <button class="favorite-btn ${isFavorite ? 'favorited' : ''}" data-game="${game.name}">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                            </div>
-                            <div class="game-meta">
-                                <span class="game-category">${game.category}</span>
-                                <span class="game-rating">
-                                    ${'★'.repeat(Math.floor(game.rating))}${'☆'.repeat(5 - Math.floor(game.rating))}
-                                </span>
-                            </div>
-                            <div class="game-actions">
-                                <a href="${game.url}" class="play-btn" target="_blank">Play <i class="fas fa-external-link-alt"></i></a>
-                                <button class="details-btn" data-game="${game.name}">Details</button>
-                            </div>
+                            <h3 class="game-title">${game.name}</h3>
+                            <span class="game-category">${game.category}</span>
+                            <button class="play-btn play-game-btn" data-url="${game.url}" data-name="${game.name}">
+                                Play Now <i class="fas fa-play"></i>
+                            </button>
                         </div>
                     `;
                     gamesGrid.appendChild(gameCard);
                 });
 
-                // Add event listeners to favorite buttons
-                document.querySelectorAll('.favorite-btn').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const gameName = this.getAttribute('data-game');
-                        toggleFavorite(gameName);
-                    });
-                });
-
-                // Add event listeners to details buttons
-                document.querySelectorAll('.details-btn').forEach(btn => {
+                // Add event listeners to all play buttons
+                document.querySelectorAll('.play-game-btn').forEach(btn => {
                     btn.addEventListener('click', function() {
-                        const gameName = this.getAttribute('data-game');
-                        showGameDetails(gameName);
+                        const gameUrl = this.getAttribute('data-url');
+                        const gameName = this.getAttribute('data-name');
+                        openGame(gameUrl, gameName);
                     });
                 });
             }, 800);
         }
 
-        // Toggle game favorite status
-        function toggleFavorite(gameName) {
-            const index = user.favorites.indexOf(gameName);
-            if (index === -1) {
-                user.favorites.push(gameName);
-                showNotification(`${gameName} added to favorites`, 'success');
+        // Open game in viewer
+        function openGame(url, name) {
+            gameViewerTitle.textContent = name;
+            gameFrame.src = url;
+            gameViewer.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        // Close game viewer
+        function closeGameViewer() {
+            gameViewer.classList.remove('active');
+            gameFrame.src = '';
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }
+
+        // Toggle fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                gameViewerContainer.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
             } else {
-                user.favorites.splice(index, 1);
-                showNotification(`${gameName} removed from favorites`, 'info');
+                document.exitFullscreen();
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
             }
-            
-            // Update UI
-            const favoriteBtns = document.querySelectorAll(`.favorite-btn[data-game="${gameName}"]`);
-            favoriteBtns.forEach(btn => {
-                btn.classList.toggle('favorited');
-            });
-            
-            saveUserData();
         }
 
-        // Show game details modal
-        function showGameDetails(gameName) {
-            const game = games.find(g => g.name === gameName);
-            if (!game) return;
+        // Event listeners for game viewer
+        closeGameBtn.addEventListener('click', closeGameViewer);
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
 
-            document.getElementById('modalTitle').textContent = game.name;
-            document.getElementById('modalCategory').textContent = `${game.category.charAt(0).toUpperCase() + game.category.slice(1)} • ${'★'.repeat(Math.floor(game.rating))}${'☆'.repeat(5 - Math.floor(game.rating))}`;
-            document.getElementById('modalImage').src = game.image;
-            document.getElementById('modalImage').alt = game.name;
-            document.getElementById('modalDescription').textContent = game.description;
-            
-            // Update play button
-            const playBtn = document.getElementById('modalPlayBtn');
-            playBtn.onclick = function() {
-                window.open(game.url, '_blank');
-            };
-            
-            // Show modal
-            document.getElementById('gameModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close modal
-        document.getElementById('modalClose').addEventListener('click', function() {
-            document.getElementById('gameModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // Close game viewer when clicking outside
+        gameViewer.addEventListener('click', (e) => {
+            if (e.target === gameViewer) {
+                closeGameViewer();
+            }
         });
 
-        // Close modal when clicking outside
-        document.getElementById('gameModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        // Handle fullscreen change
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) {
+                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            } else {
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
             }
         });
 
@@ -2717,15 +1551,8 @@
                 document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 const category = this.getAttribute('data-category');
-                renderGames(category, document.getElementById('gameSearch').value);
+                renderGames(category);
             });
-        });
-
-        // Game Search
-        document.getElementById('gameSearch').addEventListener('input', function() {
-            const searchQuery = this.value;
-            const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
-            renderGames(activeCategory, searchQuery);
         });
 
         // Random Game Button
@@ -2736,110 +1563,33 @@
                 this.classList.remove('clicked');
             }, 300);
             
-            const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
-            const searchQuery = document.getElementById('gameSearch').value;
-            
-            let filteredGames = games;
-            
-            // Apply category filter
-            if (activeCategory !== 'all') {
-                filteredGames = filteredGames.filter(game => game.category === activeCategory);
-            }
-            
-            // Apply search filter
-            if (searchQuery) {
-                const query = searchQuery.toLowerCase();
-                filteredGames = filteredGames.filter(game => 
-                    game.name.toLowerCase().includes(query) || 
-                    game.description.toLowerCase().includes(query) ||
-                    game.tags.some(tag => tag.toLowerCase().includes(query))
-                );
-            }
-            
-            if (filteredGames.length === 0) {
-                showNotification('No games available to select randomly', 'error');
-                return;
-            }
-            
-            const randomGame = filteredGames[Math.floor(Math.random() * filteredGames.length)];
-            showNotification(`Playing ${randomGame.name}`, 'success');
-            setTimeout(() => {
-                window.open(randomGame.url, '_blank');
-            }, 1000);
+            const randomGame = games[Math.floor(Math.random() * games.length)];
+            openGame(randomGame.url, randomGame.name);
         });
 
         // Dark Mode Toggle
         document.getElementById('darkModeToggle').addEventListener('change', function() {
-            user.settings.darkMode = this.checked;
-            toggleDarkMode(this.checked);
-        });
-
-        // Dark Mode Toggle Button
-        document.getElementById('darkModeToggleBtn').addEventListener('click', function() {
-            const darkModeToggle = document.getElementById('darkModeToggle');
-            darkModeToggle.checked = !darkModeToggle.checked;
-            user.settings.darkMode = darkModeToggle.checked;
-            toggleDarkMode(darkModeToggle.checked);
+            const root = document.documentElement;
+            if (this.checked) {
+                root.style.setProperty('--background-color', '#121212');
+                root.style.setProperty('--card-color', '#252525');
+                root.style.setProperty('--text-color', '#ffffff');
+                root.style.setProperty('--text-secondary', 'rgba(255, 255, 255, 0.7)');
+            } else {
+                root.style.setProperty('--background-color', '#f5f5f5');
+                root.style.setProperty('--card-color', '#ffffff');
+                root.style.setProperty('--text-color', '#333333');
+                root.style.setProperty('--text-secondary', 'rgba(0, 0, 0, 0.7)');
+            }
         });
 
         // Particles Toggle
         document.getElementById('particlesToggle').addEventListener('change', function() {
-            user.settings.particles = this.checked;
-            toggleParticles(this.checked);
-        });
-
-        // Animations Select
-        document.getElementById('animations').addEventListener('change', function() {
-            user.settings.animations = this.value;
-        });
-
-        // Save Settings
-        document.getElementById('saveSettingsBtn').addEventListener('click', function() {
-            saveUserData();
-        });
-
-        // Update Account
-        document.getElementById('updateAccountBtn').addEventListener('click', function() {
-            const username = document.getElementById('username').value.trim();
-            const email = document.getElementById('email').value.trim();
-            
-            if (!username || !email) {
-                showNotification('Please fill in all fields', 'error');
-                return;
-            }
-            
-            user.username = username;
-            user.email = email;
-            saveUserData();
-            updateProfileUI();
-            showNotification('Account updated successfully!', 'success');
-        });
-
-        // Logout
-        document.getElementById('logoutBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            user = {
-                username: "Guest",
-                email: "guest@example.com",
-                favorites: [],
-                history: [],
-                settings: user.settings // Keep settings
-            };
-            saveUserData();
-            updateProfileUI();
-            document.getElementById('profileDropdown').classList.remove('active');
-            showNotification('Logged out successfully', 'info');
-        });
-
-        // Profile Dropdown
-        document.getElementById('profileBtn').addEventListener('click', function() {
-            document.getElementById('profileDropdown').classList.toggle('active');
-        });
-
-        // Close profile dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('#profileBtn') && !e.target.closest('#profileDropdown')) {
-                document.getElementById('profileDropdown').classList.remove('active');
+            const particles = document.getElementById('particles-js');
+            if (this.checked) {
+                particles.style.display = 'block';
+            } else {
+                particles.style.display = 'none';
             }
         });
 
@@ -2847,9 +1597,13 @@
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.visibility = 'visible';
+                backToTopBtn.style.transform = 'translateY(0)';
             } else {
-                backToTopBtn.classList.remove('visible');
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.visibility = 'hidden';
+                backToTopBtn.style.transform = 'translateY(20px)';
             }
         });
 
@@ -2860,78 +1614,8 @@
             });
         });
 
-        // AI Chat Assistant
-        const chatToggle = document.getElementById('chatToggle');
-        const chatContainer = document.getElementById('chatContainer');
-        const chatClose = document.getElementById('chatClose');
-        const chatInput = document.getElementById('chatInput');
-        const chatSend = document.getElementById('chatSend');
-        const chatMessages = document.getElementById('chatMessages');
-
-        chatToggle.addEventListener('click', function() {
-            chatContainer.classList.toggle('active');
-        });
-
-        chatClose.addEventListener('click', function() {
-            chatContainer.classList.remove('active');
-        });
-
-        function addChatMessage(message, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'message-user' : 'message-ai'}`;
-            messageDiv.textContent = message;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function processChatMessage(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            // Simple AI responses
-            if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-                return "Hello there! How can I help you with games today?";
-            } else if (lowerMessage.includes('recommend') || lowerMessage.includes('suggest')) {
-                const randomGame = games[Math.floor(Math.random() * games.length)];
-                return `You might enjoy ${randomGame.name} - it's a ${randomGame.category} game about ${randomGame.description.substring(0, 100)}...`;
-            } else if (lowerMessage.includes('favorite') || lowerMessage.includes('best')) {
-                return "Based on ratings, some of our most popular games are TABS, Eaglercraft, and FNAF series. Would you like me to tell you more about any of these?";
-            } else if (lowerMessage.includes('thank')) {
-                return "You're welcome! Let me know if you need anything else.";
-            } else if (lowerMessage.includes('category') || lowerMessage.includes('categories')) {
-                return "We have games in these categories: Action, Puzzle, Sports, Horror, Shooting, and Cars. Which one interests you?";
-            } else if (lowerMessage.includes('help')) {
-                return "I can help you find games, recommend games based on your interests, or tell you more about specific games. What would you like to know?";
-            } else {
-                // Default response if no keywords matched
-                const responses = [
-                    "I'm not sure I understand. Could you try asking in a different way?",
-                    "I'm still learning! Try asking me about game recommendations or categories.",
-                    "That's an interesting question. Could you be more specific?",
-                    "I'm here to help with game-related questions. What would you like to know?"
-                ];
-                return responses[Math.floor(Math.random() * responses.length)];
-            }
-        }
-
-        chatSend.addEventListener('click', function() {
-            const message = chatInput.value.trim();
-            if (message) {
-                addChatMessage(message, true);
-                chatInput.value = '';
-                
-                // Simulate AI thinking
-                setTimeout(() => {
-                    const response = processChatMessage(message);
-                    addChatMessage(response);
-                }, 1000);
-            }
-        });
-
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                chatSend.click();
-            }
-        });
+        // Game viewer container reference
+        const gameViewerContainer = document.querySelector('.game-viewer-container');
 
         // Particles.js Background
         particlesJS('particles-js', {
@@ -3023,16 +1707,8 @@
             "retina_detect": true
         });
 
-        // Initialize the page
-        window.addEventListener('DOMContentLoaded', function() {
-            loadUserData();
-            renderGames();
-            
-            // Show welcome message
-            setTimeout(() => {
-                showNotification('Welcome to Hanshew Unblocked! Enjoy our game collection.', 'info');
-            }, 2000);
-        });
+        // Initial render of games
+        renderGames();
     </script>
 </body>
 </html>
