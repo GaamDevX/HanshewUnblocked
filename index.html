@@ -553,7 +553,15 @@
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .settings-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
         .settings-section-title {
@@ -809,7 +817,6 @@
             background-color: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             display: none;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -836,16 +843,20 @@
         }
 
         .game-viewer-header {
+            display: none;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             padding: 15px;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
-            display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1;
+        }
+
+        .game-viewer:not(.fullscreen) .game-viewer-header {
+            display: flex;
         }
 
         .game-viewer-title {
@@ -1193,22 +1204,9 @@
         <div class="loader-spinner"></div>
     </div>
     
-    <!-- Game Viewer -->
+    <!-- Game Viewer - Simplified version -->
     <div class="game-viewer" id="gameViewer">
-        <div class="game-viewer-container">
-            <div class="game-viewer-header">
-                <h3 class="game-viewer-title" id="gameViewerTitle">Game Title</h3>
-                <div class="game-viewer-controls">
-                    <button class="game-viewer-btn fullscreen" id="fullscreenBtn" title="Fullscreen">
-                        <i class="fas fa-expand"></i>
-                    </button>
-                    <button class="game-viewer-btn" id="closeGameBtn" title="Close">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <iframe class="game-viewer-iframe" id="gameFrame" allowfullscreen></iframe>
-        </div>
+        <iframe class="game-viewer-iframe" id="gameFrame" allowfullscreen></iframe>
     </div>
     
     <header>
@@ -1431,7 +1429,7 @@
             { name: "Kick That Buddy", url: "https://skys.follobusiness.com/semag/kickthatbuddy/index.html", category: "action", image: "https://lh3.googleusercontent.com/H_Te1sCRc5fwgpKDvcI-crLI3GoT48zOc_iDN4H9wEsI5vLuzJN33BegsU9rJHbLVOM=s180" },
             { name: "MajorasMask", url: "https://skys.follobusiness.com/semag/majorasmask/index.html", category: "action", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpNGnnG9j5ftKngwCPUKS1ioFJS6cQVpzEKg&s" },
             { name: "Rooftop Snipers 2", url: "https://skys.follobusiness.com/semag/rooftopsnipers2/index.html", category: "sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKY2uliGeNKbqaj4zsKGgQih6z4WKF7mgkew&s" },
-            { name: "Jetpack Joyride", url: "https://skys.follobusiness.com/semag/jetpackjoyride/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/3e_iyy1dolGSHqKFmwsao8SiMmqOtCuwD4CyKToLHoK34cchcH5PlG2VhOoE2_j-7FMH" },
+            { name: "Jetpack Joyride", url: "https://skys.follobusiness.com/semag/jetpackjoyride/index.html", category: "puzzle", image: "https://play-lh.googleusercontent.com/3e_iyy1dolGSHqKFmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok" },
             { name: "Retro Bowl", url: "https://skys.follobusiness.com/semag/retrobowl/index.html", category: "sports", image: "https://upload.wikimedia.org/wikipedia/en/b/bf/Retro_Bowl_cover.png" },
             { name: "Retro Bowl College", url: "https://skys.follobusiness.com/semag/retrobowlcollege/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/-BT8C-1UPYWouyjVvWYgaar_-xV4IQvX4Bvib3koGEGiy6UsHlt0RgYpUrdTDfC2y0ct=w240-h480-rw" },
             { name: "Fancy Pants 2", url: "https://skys.follobusiness.com/semag/fancypantsadventures2/index.html", category: "sports", image: "https://play-lh.googleusercontent.com/uUknF-T1uzoMBLoR7CJo2R6GT_2RYs9qxXSvzCxsxZ-i7KD43k3RsdCyw7xXESIkOUg" },
@@ -1452,7 +1450,6 @@
         // Game Viewer Elements
         const gameViewer = document.getElementById('gameViewer');
         const gameFrame = document.getElementById('gameFrame');
-        const gameViewerTitle = document.getElementById('gameViewerTitle');
         const closeGameBtn = document.getElementById('closeGameBtn');
         const fullscreenBtn = document.getElementById('fullscreenBtn');
         const gameViewerContainer = document.querySelector('.game-viewer-container');
@@ -1614,49 +1611,69 @@
 
         // Open game in viewer
         function openGame(url, name) {
-            gameViewerTitle.textContent = name;
             gameFrame.src = url;
             gameViewer.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
+            
+            // Listen for fullscreen change
+            document.addEventListener('fullscreenchange', handleFullscreenChange);
+            document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+            document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+            document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+        }
+
+        function handleFullscreenChange() {
+            // This function will handle showing/hiding UI elements based on fullscreen state
+            // Since we've simplified the UI, no additional action is needed here
         }
 
         // Close game viewer
         function closeGameViewer() {
+            // Remove event listeners
+            document.removeEventListener('fullscreenchange', handleFullscreenChange);
+            document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+            document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+            document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+            
             gameViewer.classList.remove('active');
             gameFrame.src = '';
-            document.body.style.overflow = ''; // Re-enable scrolling
+            document.body.style.overflow = '';
         }
 
         // Toggle fullscreen
         function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                gameViewerContainer.requestFullscreen().catch(err => {
-                    console.error(`Error attempting to enable fullscreen: ${err.message}`);
-                });
-                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            if (!document.fullscreenElement && 
+                !document.webkitFullscreenElement && 
+                !document.mozFullScreenElement && 
+                !document.msFullscreenElement) {
+                // Enter fullscreen
+                if (gameViewerContainer.requestFullscreen) {
+                    gameViewerContainer.requestFullscreen();
+                } else if (gameViewerContainer.webkitRequestFullscreen) {
+                    gameViewerContainer.webkitRequestFullscreen();
+                } else if (gameViewerContainer.mozRequestFullScreen) {
+                    gameViewerContainer.mozRequestFullScreen();
+                } else if (gameViewerContainer.msRequestFullscreen) {
+                    gameViewerContainer.msRequestFullscreen();
+                }
             } else {
-                document.exitFullscreen();
-                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                // Exit fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
             }
         }
-
-        // Event listeners for game viewer
-        closeGameBtn.addEventListener('click', closeGameViewer);
-        fullscreenBtn.addEventListener('click', toggleFullscreen);
 
         // Close game viewer when clicking outside
         gameViewer.addEventListener('click', (e) => {
             if (e.target === gameViewer) {
                 closeGameViewer();
-            }
-        });
-
-        // Handle fullscreen change
-        document.addEventListener('fullscreenchange', () => {
-            if (document.fullscreenElement) {
-                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-            } else {
-                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
             }
         });
 
